@@ -32,18 +32,14 @@ function Header() {
   </header>;
 }
 
-function Network() {
-  return <div className="network" aria-label="Ecossistema CSTI conectando canais, dados, automação e inteligência">
-    <span className="node n1">WhatsApp</span><span className="node n2">Instagram</span><span className="node n3">WebChat</span><span className="node n4">Voz</span><span className="node n5">Dados</span>
-    <div className="core"><strong>CSTI</strong><small>CORE</small></div><p>IA · AUTOMAÇÃO · INTEGRAÇÕES</p>
-  </div>;
-}
-
 function Home() {
   return <main id="inicio">
-    <section className="hero dark"><Header /><div className="hero-layout shell"><div><p className="eyebrow">TECNOLOGIA · AUTOMAÇÃO · INTELIGÊNCIA</p><h1>Tecnologia para uma comunicação mais assertiva.</h1><p className="lead">Omnichannel, automação, inteligência artificial e integrações conectando empresas, pessoas e canais.</p><div className="actions"><a className="button" href="#solucoes">Conheça nossas soluções <Arrow /></a><a className="text-link" href="#contato">Fale com um especialista <Arrow /></a></div></div><Network /></div></section>
+    <section className="hero dark"><Header /><div className="hero-layout shell"><div className="hero-copy"><p className="eyebrow">TECNOLOGIA · AUTOMAÇÃO · INTELIGÊNCIA</p><h1>Tecnologia para uma comunicação mais assertiva<span>.</span></h1><p className="lead">Omnichannel, automação, inteligência artificial e integrações conectando empresas, pessoas e canais.</p><div className="actions"><a className="button" href="#solucoes">Conheça nossas soluções <Arrow /></a><a className="text-link" href="#contato">Fale com um especialista <Arrow /></a></div></div></div></section>
+    <section className="capability-band dark"><div className="shell"><p>Conectamos tecnologia e comunicação para gerar valor real aos negócios.</p>{[["01","Estratégia e consultoria"],["02","Plataformas e tecnologia"],["03","Implementação e integrações"],["04","Suporte e evolução"]].map(([n,t])=><div key={n}><span>{n}</span><strong>{t}</strong></div>)}</div></section>
 
     <section className="thesis section shell" id="empresa"><div><p className="eyebrow ink">COMUNICAÇÃO NÃO É APENAS UM CANAL</p><h2>Não basta estar presente.<br/>É preciso estar conectado.</h2></div><div className="big-copy"><p>Pessoas, canais, dados, automações e inteligência precisam trabalhar dentro da mesma estratégia de comunicação.</p><div className="converge"><i></i><i></i><i></i><b>CSTI</b></div></div></section>
+
+    <section className="editorial section"><div className="shell editorial-grid"><div><p className="eyebrow ink">TECNOLOGIA QUE AMPLIFICA RELAÇÕES</p><h2>Soluções completas para comunicações inteligentes.</h2><p className="body">Da estratégia à operação, integramos soluções que conectam pessoas, canais e sistemas com mais clareza, eficiência e humanidade.</p><ul><li>Atendimento omnichannel e experiências consistentes</li><li>Automação e IA aplicadas à operação</li><li>Integrações seguras com sistemas e dados</li></ul><a className="text-link dark-link" href="#solucoes">Explore o ecossistema CSTI <Arrow /></a></div><div className="editorial-image"><img src="/estrategia-csti-v1.png" alt="Equipe desenvolvendo uma estratégia de comunicação integrada"/><span>ESTRATÉGIA · TECNOLOGIA · OPERAÇÃO</span></div></div></section>
 
     <section className="ecosystem section" id="solucoes"><div className="shell"><div className="heading"><p className="eyebrow ink">ECOSSISTEMA CSTI</p><h2>Uma estrutura.<br/>Múltiplas capacidades.</h2><p>A tecnologia certa não isola ferramentas. Ela organiza o fluxo completo da comunicação.</p></div><div className="pillars">{pillars.map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p><Arrow /></article>)}</div></div></section>
 
@@ -51,11 +47,12 @@ function Home() {
 
     <section className="manifesto section"><div className="shell"><p>A tecnologia conecta os canais.</p><p>A estratégia conecta as pessoas.</p><strong>CSTI Brasil — Tecnologia para Comunicação Assertiva.</strong></div></section>
 
-    <section className="segments section shell" id="segmentos"><div className="heading"><p className="eyebrow ink">SEGMENTOS</p><h2>Tecnologia adaptada à realidade da sua operação.</h2></div><div className="segment-layout"><div className="tabs">{segments.map((x,i)=><button className={i===0?"active":""} key={x}><span>0{i+1}</span>{x}</button>)}</div><div className="case"><p>EXEMPLO DE FLUXO · VAREJO</p><div><span>Instagram</span>→<span>Atendimento</span>→<span>WhatsApp</span>→<span>Equipe</span>→<span>Relacionamento</span></div><small>A arquitetura é desenhada conforme os canais, processos e objetivos de cada operação.</small></div></div></section>
+    <section className="segments section" id="segmentos"><div className="shell"><div className="heading"><p className="eyebrow">SOLUÇÕES POR SEGMENTO</p><h2>Tecnologia adaptada à realidade da sua operação.</h2><p>Cada mercado tem jornadas, canais e desafios próprios. A CSTI estrutura soluções específicas para cada contexto.</p></div><div className="segment-cards">{segments.map((x,i)=><a href="#contato" key={x}><span>0{i+1}</span><h3>{x}</h3><p>Conhecer o segmento</p><Arrow /></a>)}</div></div></section>
 
     <section className="consulting section" id="consultoria"><div className="shell split"><div><p className="eyebrow ink">ESTRUTURA E GOVERNANÇA</p><h2>Tecnologia sem estratégia é apenas ferramenta.</h2><p className="body">Analisamos canais, processos, documentação, atendimento e infraestrutura para identificar como a tecnologia pode ser aplicada à operação.</p><a className="text-link dark-link" href="#contato">Conheça nossa consultoria <Arrow /></a></div><div className="architecture">{["Diagnóstico","Processos","Ambiente Meta","Automação","Governança","Integrações"].map((x,i)=><div key={x}><span>0{i+1}</span><strong>{x}</strong></div>)}</div></div></section>
 
     <section className="final dark" id="contato"><div className="shell"><p className="eyebrow">PRÓXIMO PASSO</p><h2>Sua empresa já se comunica.<br/>Nós ajudamos a transformar isso em estrutura.</h2><a className="button" href="mailto:contato@cstibrasil.com.br">Fale com um especialista <Arrow /></a></div></section><Footer />
+    <a className="back-to-top" href="#inicio" aria-label="Voltar ao topo"><span>↑</span><small>TOPO</small></a>
   </main>;
 }
 
