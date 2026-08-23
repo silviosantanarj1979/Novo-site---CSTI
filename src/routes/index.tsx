@@ -1,7 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import logoAsset from "@/assets/csti-logo.png.asset.json";
-import estrategiaAsset from "@/assets/estrategia-csti-v1.png.asset.json";
-import heroAsset from "@/assets/hero-operacao-csti-v1.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -10,9 +7,9 @@ export const Route = createFileRoute("/")({
     { property: "og:title", content: "CSTI Brasil | Tecnologia para Comunicação Assertiva" },
     { property: "og:description", content: "Tecnologia para conectar empresas, pessoas e canais com mais clareza e governança." },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: heroAsset.url },
+    { property: "og:image", content: "/hero-operacao-csti-v1.png" },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:image", content: heroAsset.url },
+    { name: "twitter:image", content: "/hero-operacao-csti-v1.png" },
   ]}),
   component: Home,
 });
@@ -27,7 +24,7 @@ const pillars = [
 ];
 const segments = ["Varejo","Drogarias e Farmácias","Serviços","Saúde","Educação","Empresas","Setor Público"];
 const Arrow = () => <span aria-hidden="true">↗</span>;
-const Brand = () => <img className="brand" src={logoAsset.url} alt="CSTI Brasil" />;
+const Brand = () => <img className="brand" src="/csti-logo.png" alt="CSTI Brasil" />;
 
 function Header() {
   return <header className="site-header">
@@ -40,12 +37,12 @@ function Header() {
 
 function Home() {
   return <main id="inicio">
-    <section className="hero dark" style={{ backgroundImage: `linear-gradient(90deg,#07131ff2 0%,#07131fdc 36%,#07131f4d 68%,#07131f18 100%),url('${heroAsset.url}')` }}><Header /><div className="hero-layout shell"><div className="hero-copy"><p className="eyebrow">TECNOLOGIA · AUTOMAÇÃO · INTELIGÊNCIA</p><h1>Tecnologia para uma comunicação mais assertiva<span>.</span></h1><p className="lead">Omnichannel, automação, inteligência artificial e integrações conectando empresas, pessoas e canais.</p><div className="actions"><a className="button" href="#solucoes">Conheça nossas soluções <Arrow /></a><a className="text-link" href="#contato">Fale com um especialista <Arrow /></a></div></div></div></section>
+    <section className="hero dark" style={{ backgroundImage: "linear-gradient(90deg,#07131ff2 0%,#07131fdc 36%,#07131f4d 68%,#07131f18 100%),url('/hero-operacao-csti-v1.png')" }}><Header /><div className="hero-layout shell"><div className="hero-copy"><p className="eyebrow">TECNOLOGIA · AUTOMAÇÃO · INTELIGÊNCIA</p><h1>Tecnologia para uma comunicação mais assertiva<span>.</span></h1><p className="lead">Omnichannel, automação, inteligência artificial e integrações conectando empresas, pessoas e canais.</p><div className="actions"><a className="button" href="#solucoes">Conheça nossas soluções <Arrow /></a><a className="text-link" href="#contato">Fale com um especialista <Arrow /></a></div></div></div></section>
     <section className="capability-band dark"><div className="shell"><p>Conectamos tecnologia e comunicação para gerar valor real aos negócios.</p>{[["01","Estratégia e consultoria"],["02","Plataformas e tecnologia"],["03","Implementação e integrações"],["04","Suporte e evolução"]].map(([n,t])=><div key={n}><span>{n}</span><strong>{t}</strong></div>)}</div></section>
 
     <section className="thesis section shell" id="empresa"><div><p className="eyebrow ink">COMUNICAÇÃO NÃO É APENAS UM CANAL</p><h2>Não basta estar presente.<br/>É preciso estar conectado.</h2></div><div className="big-copy"><p>Pessoas, canais, dados, automações e inteligência precisam trabalhar dentro da mesma estratégia de comunicação.</p><div className="converge"><i></i><i></i><i></i><b>CSTI</b></div></div></section>
 
-    <section className="editorial section"><div className="shell editorial-grid"><div><p className="eyebrow ink">TECNOLOGIA QUE AMPLIFICA RELAÇÕES</p><h2>Soluções completas para comunicações inteligentes.</h2><p className="body">Da estratégia à operação, integramos soluções que conectam pessoas, canais e sistemas com mais clareza, eficiência e humanidade.</p><ul><li>Atendimento omnichannel e experiências consistentes</li><li>Automação e IA aplicadas à operação</li><li>Integrações seguras com sistemas e dados</li></ul><a className="text-link dark-link" href="#solucoes">Explore o ecossistema CSTI <Arrow /></a></div><div className="editorial-image"><img src={estrategiaAsset.url} alt="Equipe desenvolvendo uma estratégia de comunicação integrada"/><span>ESTRATÉGIA · TECNOLOGIA · OPERAÇÃO</span></div></div></section>
+    <section className="editorial section"><div className="shell editorial-grid"><div><p className="eyebrow ink">TECNOLOGIA QUE AMPLIFICA RELAÇÕES</p><h2>Soluções completas para comunicações inteligentes.</h2><p className="body">Da estratégia à operação, integramos soluções que conectam pessoas, canais e sistemas com mais clareza, eficiência e humanidade.</p><ul><li>Atendimento omnichannel e experiências consistentes</li><li>Automação e IA aplicadas à operação</li><li>Integrações seguras com sistemas e dados</li></ul><a className="text-link dark-link" href="#solucoes">Explore o ecossistema CSTI <Arrow /></a></div><div className="editorial-image"><img src="/estrategia-csti-v1.png" alt="Equipe desenvolvendo uma estratégia de comunicação integrada"/><span>ESTRATÉGIA · TECNOLOGIA · OPERAÇÃO</span></div></div></section>
 
     <section className="ecosystem section" id="solucoes"><div className="shell"><div className="heading"><p className="eyebrow ink">ECOSSISTEMA CSTI</p><h2>Uma estrutura.<br/>Múltiplas capacidades.</h2><p>A tecnologia certa não isola ferramentas. Ela organiza o fluxo completo da comunicação.</p></div><div className="pillars">{pillars.map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p><Arrow /></article>)}</div></div></section>
 
