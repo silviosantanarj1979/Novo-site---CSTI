@@ -19,7 +19,7 @@ function Index() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="text-center">
-        <span>\u2063</span>
+        <span>{"\\u2063"}</span>
         <div className="mb-8 flex justify-center">
           <img 
             src={logoAsset.url} 
