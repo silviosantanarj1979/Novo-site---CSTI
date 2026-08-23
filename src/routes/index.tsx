@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,6 +19,13 @@ function Index() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="text-center">
+        <div className="mb-8 flex justify-center">
+          <img 
+            src={logoAsset.url} 
+            alt="CSTI Brasil Logo" 
+            className="h-24 w-auto object-contain"
+          />
+        </div>
         <h1 className="text-4xl font-bold tracking-tight text-foreground">
           Site - CSTI Novo
         </h1>
