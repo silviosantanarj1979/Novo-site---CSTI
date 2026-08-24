@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { Brand, SiteHeader } from "../components/site-shell";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -34,17 +35,7 @@ const segmentData = [
 ];
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
-const Brand = () => <img className="brand" src="/csti-logo.png" alt="CSTI Brasil" />;
-
-function Header() {
-  return <header className="site-header">
-    <a href="#inicio" aria-label="CSTI Brasil — página inicial"><Brand /></a>
-    <nav className="desktop-nav" aria-label="Navegação principal"><a href="#solucoes">Soluções</a><a href="#produto">Plataforma</a><a href="#tecnologia">Tecnologia</a><a href="#segmentos">Segmentos</a><a href="#consultoria">Consultoria</a><a href="#empresa">CSTI Brasil</a></nav>
-    <div className="header-actions"><a href="#cliente">Área do Cliente</a><a className="button small" href="#contato">Fale com um especialista <Arrow /></a></div>
-    <details className="mobile-menu"><summary aria-label="Abrir menu"><i></i><i></i></summary><nav><a href="#solucoes">Soluções</a><a href="#tecnologia">Tecnologia</a><a href="#segmentos">Segmentos</a><a href="#consultoria">Consultoria</a><a href="#empresa">CSTI Brasil</a><a href="#contato">Fale com um especialista</a></nav></details>
-  </header>;
-}
-
+const Header = SiteHeader;
 function SegmentExplorer() {
   const [active, setActive] = useState(0);
   const segment = segmentData[active];
@@ -53,7 +44,7 @@ function SegmentExplorer() {
       {segmentData.map((item, index) => <button key={item.name} role="tab" aria-selected={active === index} className={active === index ? "active" : ""} onClick={() => setActive(index)}><span>{item.code}</span>{item.name}</button>)}
     </div>
     <article className="segment-stage" role="tabpanel">
-      <div className="segment-copy"><span className="segment-index">SEGMENTO / {segment.code}</span><h3>{segment.title}</h3><p>{segment.text}</p><a href="#contato" className="text-link">Falar sobre este segmento <Arrow /></a></div>
+      <div className="segment-copy"><span className="segment-index">SEGMENTO / {segment.code}</span><h3>{segment.title}</h3><p>{segment.text}</p><a href={segment.name === "Drogarias e Farmácias" ? "/segmentos/drogarias-e-farmacias" : "/segmentos"} className="text-link">Explorar este segmento <Arrow /></a></div>
       <div className="journey" aria-label={`Jornada de comunicação para ${segment.name}`}><span className="journey-label">JORNADA OPERACIONAL</span>{segment.flow.map((step, index) => <div className="journey-step" key={step}><span>0{index + 1}</span><strong>{step}</strong>{index < segment.flow.length - 1 && <i aria-hidden="true">→</i>}</div>)}</div>
     </article>
   </div>;
