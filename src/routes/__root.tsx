@@ -83,6 +83,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "CSTI Brasil" },
       { property: "og:description", content: "Tecnologia para Comunicação Assertiva" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:site_name", content: "CSTI Brasil" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -92,6 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon-csti-ciano.png", type: "image/png" },
       { rel: "apple-touch-icon", href: "/favicon-csti-ciano.png" },
+      { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
     ],
   }),
   shellComponent: RootShell,
@@ -105,6 +109,8 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="pt-BR">
       <head>
         <HeadContent />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Organization","@id":"https://cstibrasil.com.br/#organization",name:"CSTI Brasil",url:"https://cstibrasil.com.br/",logo:"https://cstibrasil.com.br/csti-logo-oficial-ciano.png",image:"https://cstibrasil.com.br/og-csti-brasil-oficial.png",email:"contato@cstibrasil.com.br",description:"Empresa brasileira de tecnologia especializada em comunicação omnichannel, automação, Inteligência Artificial, integrações e consultoria.",areaServed:{"@type":"Country",name:"Brasil"},knowsAbout:["Comunicação omnichannel","WhatsApp Business Platform","Automação empresarial","Inteligência Artificial personalizada","Integração de sistemas","Consultoria em tecnologia"]})}} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"WebSite","@id":"https://cstibrasil.com.br/#website",url:"https://cstibrasil.com.br/",name:"CSTI Brasil",inLanguage:"pt-BR",publisher:{"@id":"https://cstibrasil.com.br/#organization"}})}} />
       </head>
       <body>
         {children}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { InfoModal } from "../../components/info-modal";
 import { BackToTop, SiteFooter, SiteHeader } from "../../components/site-shell";
 
-export const Route=createFileRoute("/segmentos/")({head:()=>({meta:[{title:"Segmentos | CSTI Brasil"},{name:"description",content:"Tecnologia, automação e comunicação estruturadas para diferentes segmentos de mercado."}]}),component:SegmentosPage});
+export const Route=createFileRoute("/segmentos/")({head:()=>({meta:[{title:"Soluções por Segmento: Varejo, Saúde e Serviços | CSTI Brasil"},{name:"description",content:"Omnichannel, automação e IA para varejo, drogarias, serviços, saúde, educação, empresas e setor público em todo o Brasil."},{property:"og:title",content:"Soluções de tecnologia por segmento | CSTI Brasil"},{property:"og:description",content:"Estratégias de comunicação, atendimento e automação adaptadas à realidade de cada mercado."},{property:"og:url",content:"https://cstibrasil.com.br/segmentos"},{property:"og:image",content:"https://cstibrasil.com.br/segmentos-editorial-v1.png"}],links:[{rel:"canonical",href:"https://cstibrasil.com.br/segmentos"}]}),component:SegmentosPage});
 const Arrow=()=> <span aria-hidden="true">↗</span>;
 const markets=[
   ["01","Varejo","Conecte descoberta, atendimento, oportunidade e relacionamento em uma jornada contínua.","Instagram|WhatsApp|Equipe|Relacionamento","#contato","CONVERSÃO E RELACIONAMENTO"],
