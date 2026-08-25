@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { BackToTop, SiteFooter, SiteHeader } from "../components/site-shell";
 
-export const Route=createFileRoute("/")({head:()=>({meta:[{title:"CSTI Brasil | Tecnologia para Comunicação Assertiva"},{name:"description",content:"Estratégia, tecnologia e inteligência para estruturar a comunicação empresarial."},{property:"og:title",content:"CSTI Brasil | Tecnologia para Comunicação Assertiva"},{property:"og:description",content:"Estratégia, tecnologia e inteligência para estruturar a comunicação empresarial."},{property:"og:image",content:"/hero-operacao-csti-v1.png"}]}),component:Home});
+export const Route=createFileRoute("/")({head:()=>({meta:[{title:"CSTI Brasil | Tecnologia para Comunicação Assertiva"},{name:"description",content:"Estratégia, tecnologia e inteligência para estruturar a comunicação empresarial."},{property:"og:title",content:"CSTI Brasil | Tecnologia para Comunicação Assertiva"},{property:"og:description",content:"Estratégia, tecnologia e inteligência para estruturar a comunicação empresarial."},{property:"og:image",content:"/og-csti-brasil-oficial.png"},{name:"twitter:card",content:"summary_large_image"},{name:"twitter:image",content:"/og-csti-brasil-oficial.png"}]}),component:Home});
 const Arrow=()=> <span aria-hidden="true">↗</span>;
 const services=[
   {name:"Omnichannel",headline:"Uma operação, mesmo quando a conversa muda de canal.",text:"Centralize canais, equipes e históricos para oferecer continuidade ao atendimento e mais clareza para a gestão.",items:["WhatsApp e canais digitais","Filas e departamentos","Histórico institucional"]},
