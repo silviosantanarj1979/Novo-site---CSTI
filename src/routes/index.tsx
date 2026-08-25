@@ -39,6 +39,7 @@ const Header = SiteHeader;
 function SegmentExplorer() {
   const [active, setActive] = useState(0);
   const segment = segmentData[active];
+  if (!segment) return null;
   return <div className="segment-explorer">
     <div className="segment-tabs" role="tablist" aria-label="Escolha um segmento">
       {segmentData.map((item, index) => <button key={item.name} role="tab" aria-selected={active === index} className={active === index ? "active" : ""} onClick={() => setActive(index)}><span>{item.code}</span>{item.name}</button>)}
