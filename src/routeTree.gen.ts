@@ -10,33 +10,77 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SegmentosIndexRouteImport } from './routes/segmentos/index'
+import { Route as SegmentosDrogariasEFarmaciasRouteImport } from './routes/segmentos/drogarias-e-farmacias'
+import { Route as SolucoesAutomacaoEIaRouteImport } from './routes/solucoes/automacao-e-ia'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SegmentosIndexRoute = SegmentosIndexRouteImport.update({
+  id: '/segmentos/',
+  path: '/segmentos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SegmentosDrogariasEFarmaciasRoute =
+  SegmentosDrogariasEFarmaciasRouteImport.update({
+    id: '/segmentos/drogarias-e-farmacias',
+    path: '/segmentos/drogarias-e-farmacias',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesAutomacaoEIaRoute = SolucoesAutomacaoEIaRouteImport.update({
+  id: '/solucoes/automacao-e-ia',
+  path: '/solucoes/automacao-e-ia',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/segmentos/drogarias-e-farmacias': typeof SegmentosDrogariasEFarmaciasRoute
+  '/solucoes/automacao-e-ia': typeof SolucoesAutomacaoEIaRoute
+  '/segmentos/': typeof SegmentosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/segmentos/drogarias-e-farmacias': typeof SegmentosDrogariasEFarmaciasRoute
+  '/solucoes/automacao-e-ia': typeof SolucoesAutomacaoEIaRoute
+  '/segmentos': typeof SegmentosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/segmentos/drogarias-e-farmacias': typeof SegmentosDrogariasEFarmaciasRoute
+  '/solucoes/automacao-e-ia': typeof SolucoesAutomacaoEIaRoute
+  '/segmentos/': typeof SegmentosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/segmentos/drogarias-e-farmacias'
+    | '/solucoes/automacao-e-ia'
+    | '/segmentos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/segmentos/drogarias-e-farmacias'
+    | '/solucoes/automacao-e-ia'
+    | '/segmentos'
+  id:
+    | '__root__'
+    | '/'
+    | '/segmentos/drogarias-e-farmacias'
+    | '/solucoes/automacao-e-ia'
+    | '/segmentos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SegmentosDrogariasEFarmaciasRoute: typeof SegmentosDrogariasEFarmaciasRoute
+  SolucoesAutomacaoEIaRoute: typeof SolucoesAutomacaoEIaRoute
+  SegmentosIndexRoute: typeof SegmentosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +92,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/segmentos/': {
+      id: '/segmentos/'
+      path: '/segmentos'
+      fullPath: '/segmentos/'
+      preLoaderRoute: typeof SegmentosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/drogarias-e-farmacias': {
+      id: '/segmentos/drogarias-e-farmacias'
+      path: '/segmentos/drogarias-e-farmacias'
+      fullPath: '/segmentos/drogarias-e-farmacias'
+      preLoaderRoute: typeof SegmentosDrogariasEFarmaciasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/automacao-e-ia': {
+      id: '/solucoes/automacao-e-ia'
+      path: '/solucoes/automacao-e-ia'
+      fullPath: '/solucoes/automacao-e-ia'
+      preLoaderRoute: typeof SolucoesAutomacaoEIaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SegmentosDrogariasEFarmaciasRoute: SegmentosDrogariasEFarmaciasRoute,
+  SolucoesAutomacaoEIaRoute: SolucoesAutomacaoEIaRoute,
+  SegmentosIndexRoute: SegmentosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
