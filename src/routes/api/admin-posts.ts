@@ -19,4 +19,12 @@ export const Route = createFileRoute("/api/admin-posts")({ server: { handlers: {
     if (!response.ok) return Response.json({ ok: false, error: "Não foi possível salvar. Verifique se o endereço já existe." }, { status: 400 });
     return Response.json({ ok: true, post: (await response.json())[0] });
   },
+  DELETE: async ({ request }) => {
+    const token = sessionFromRequest(request); if (!token) return unauthorized();
+    const id = new URL(request.url).searchParams.get("id")?.trim();
+    if (!id) return Response.json({ ok: false, error: "Publicação não informada." }, { status: 400 });
+    const response = await supabaseRequest(`/rest/v1/blog_posts?id=eq.${encodeURIComponent(id)}`, { method: "DELETE" }, token);
+    if (!response.ok) return Response.json({ ok: false, error: "Não foi possível apagar a publicação." }, { status: 502 });
+    return Response.json({ ok: true });
+  },
 } } });
