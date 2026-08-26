@@ -17,12 +17,12 @@ export const Route = createFileRoute("/optinfarma")({
 });
 
 const features = [
-  ["01", "Catálogo organizado", "Departamentos, categorias, busca e páginas de produto para facilitar a descoberta."],
-  ["02", "Ofertas e relacionamento", "Campanhas, descontos, clube, pontos e vantagens apresentados durante a jornada."],
-  ["03", "Compra e conveniência", "Sacola, checkout demonstrativo, cálculo de entrega e opção de retirada em loja."],
-  ["04", "Saúde conectada", "Espaço para receita digital, serviços farmacêuticos, vacinas e teleatendimento."],
-  ["05", "Recorrência", "Jornadas como dose contínua podem apoiar recompra e relacionamento com o cliente."],
-  ["06", "Atendimento", "WhatsApp, assistente virtual e direcionamento para atendimento humano na mesma experiência."],
+  ["01", "Catálogo organizado", "Departamentos, categorias, busca e páginas de produto para facilitar a descoberta.", "ENCONTRAR COM FACILIDADE"],
+  ["02", "Ofertas e relacionamento", "Campanhas, descontos, clube, pontos e vantagens apresentados durante a jornada.", "RECONHECER E FIDELIZAR"],
+  ["03", "Compra e conveniência", "Sacola, checkout demonstrativo, cálculo de entrega e opção de retirada em loja.", "COMPRAR SEM ATRITO"],
+  ["04", "Saúde conectada", "Espaço para receita digital, serviços farmacêuticos, vacinas e teleatendimento.", "CUIDADO ALÉM DA COMPRA"],
+  ["05", "Recorrência", "Jornadas como dose contínua podem apoiar recompra e relacionamento com o cliente.", "NÃO INTERROMPER O CUIDADO"],
+  ["06", "Atendimento", "WhatsApp, assistente virtual e direcionamento para atendimento humano na mesma experiência.", "RESOLVER NO CANAL CERTO"],
 ];
 
 const faqs = [
@@ -44,25 +44,25 @@ function OptinfarmaPage() {
       <SiteHeader />
       <div className="shell optinfarma-hero-grid">
         <div className="optinfarma-copy">
+          <div className="optinfarma-brand-lockup"><img src="/optinfarma-logo-oficial.png" alt="OptinFarma — Drogaria Online"/></div>
           <p className="eyebrow">CSTI BRASIL · VAREJO FARMACÊUTICO</p>
           <h1>Uma experiência digital para a drogaria <em>vender, atender e se relacionar.</em></h1>
           <p className="lead">A Optinfarma demonstra como catálogo, conveniência, serviços de saúde e relacionamento podem conviver numa jornada de e-commerce pensada para o setor farmacêutico.</p>
           <div className="actions"><a className="button" href="/contato?assunto=Optinfarma">Quero conhecer a solução <span>↗</span></a><a className="text-link" href="https://loja.optinfarma.com.br/sales/#/" target="_blank" rel="noreferrer">Abrir demonstração <span>↗</span></a></div>
           <small className="optinfarma-disclaimer">Ambiente demonstrativo. Recursos comerciais, integrações e disponibilidade são definidos em projeto.</small>
         </div>
-        <div className="optinfarma-window" aria-label="Representação da experiência Optinfarma">
+        <div className="optinfarma-system-real" aria-label="Interface demonstrativa real do sistema Optinfarma">
           <div className="optinfarma-browser"><i></i><i></i><i></i><span>loja.optinfarma.com.br</span></div>
-          <div className="optinfarma-store-head"><b>OPTIN<span>FARMA</span></b><small>SUA DROGARIA ONLINE</small></div>
-          <div className="optinfarma-search">O que você está procurando? <span>⌕</span></div>
-          <div className="optinfarma-tags"><span>Medicamentos</span><span>Beleza</span><span>Saúde</span><span>Ofertas</span></div>
-          <div className="optinfarma-stage"><div><small>EXPERIÊNCIA DIGITAL</small><strong>Cuidado e conveniência em uma só jornada.</strong><span>Explorar produtos →</span></div><div className="optinfarma-orbit"><b>360°</b><i>Catálogo</i><i>Serviços</i><i>Relacionamento</i></div></div>
+          <img src="/optinfarma-sistema-real-v1.png" width="1265" height="712" alt="Tela real da demonstração Optinfarma com busca, categorias, ofertas, benefícios e assistente virtual"/>
+          <div className="optinfarma-system-points"><span><small>01</small><strong>Busca e catálogo</strong></span><span><small>02</small><strong>Compra e benefícios</strong></span><span><small>03</small><strong>Assistente 360°</strong></span></div>
+          <small className="optinfarma-system-caption">CAPTURA DA DEMONSTRAÇÃO PÚBLICA · IMAGEM ILUSTRATIVA DA EXPERIÊNCIA</small>
         </div>
       </div>
     </section>
 
     <section className="optinfarma-intro section"><div className="shell optinfarma-intro-grid"><div><p className="eyebrow ink">DA VITRINE À OPERAÇÃO</p><h2>Não é apenas colocar produtos na internet.</h2></div><div><p>Uma operação farmacêutica digital precisa organizar descoberta, confiança, disponibilidade, entrega, atendimento e continuidade. A demonstração da Optinfarma reúne essas possibilidades em uma experiência única.</p><strong>A interface apresenta a visão.<br/>A implantação conecta a realidade.</strong></div></div></section>
 
-    <section className="optinfarma-capabilities section dark"><div className="shell"><div className="heading dark-heading"><p className="eyebrow">O QUE A DEMONSTRAÇÃO APRESENTA</p><h2>Uma jornada completa, organizada em <em>seis frentes.</em></h2><p>Os recursos abaixo foram identificados na versão pública enviada. A disponibilidade real depende do escopo contratado.</p></div><div className="optinfarma-feature-grid">{features.map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div></div></section>
+    <section className="optinfarma-capabilities section dark"><div className="shell"><div className="heading dark-heading"><p className="eyebrow">O QUE A DEMONSTRAÇÃO APRESENTA</p><h2>Uma jornada completa, organizada em <em>seis frentes.</em></h2><p>Os recursos abaixo foram identificados na versão pública enviada. A disponibilidade real depende do escopo contratado.</p></div><div className="optinfarma-feature-grid">{features.map(([n,t,d,outcome])=><article key={n}><span>{n}</span><b className="optinfarma-outcome">{outcome}</b><h3>{t}</h3><p>{d}</p></article>)}</div></div></section>
 
     <section className="optinfarma-flow section"><div className="shell"><div className="heading"><p className="eyebrow ink">COMO O PROJETO AVANÇA</p><h2>Da demonstração à loja da sua drogaria.</h2></div><div className="optinfarma-steps">{[["01","Diagnóstico","Entendemos marca, lojas, catálogo, sistemas e operação."],["02","Escopo","Definimos recursos, integrações, regras e responsabilidades."],["03","Experiência","Aplicamos identidade, conteúdo e jornadas do negócio."],["04","Integrações","Conectamos o que for tecnicamente validado no projeto."],["05","Validação","Testamos compra, atendimento, segurança e dispositivos."],["06","Evolução","Acompanhamos dados e oportunidades após a entrada em operação."]].map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div></div></section>
 
