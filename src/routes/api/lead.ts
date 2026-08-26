@@ -35,6 +35,17 @@ export const Route = createFileRoute("/api/lead")({
             return reply({ ok: false, error: "A integração de atendimento ainda não está configurada." }, 503);
           }
 
+          const brasiliaDateTime = new Intl.DateTimeFormat("pt-BR", {
+            timeZone: "America/Sao_Paulo",
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false,
+          }).format(new Date());
+
           const content = [
             "Olá! Recebemos seu contato pelo site da CSTI Brasil.",
             "",
@@ -47,6 +58,7 @@ export const Route = createFileRoute("/api/lead")({
             origem ? `Origem: ${origem}` : "",
             "",
             "Nossa equipe dará continuidade ao atendimento por este canal.",
+            `Data e hora: ${brasiliaDateTime} (horário de Brasília)`,
           ].filter(Boolean).join("\n");
 
           const apiResponse = await fetch("https://cloud.apidosistema.com/api/mensagem", {
