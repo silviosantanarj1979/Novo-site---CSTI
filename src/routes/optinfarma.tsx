@@ -53,7 +53,7 @@ function OptinfarmaPage() {
         </div>
         <div className="optinfarma-system-real" aria-label="Interface demonstrativa real do sistema Optinfarma">
           <div className="optinfarma-browser"><i></i><i></i><i></i><span>loja.optinfarma.com.br</span></div>
-          <img src="/optinfarma-sistema-real-v1.png" width="1265" height="712" alt="Tela real da demonstração Optinfarma com busca, categorias, ofertas, benefícios e assistente virtual"/>
+          <div className="optinfarma-device-stage"><img className="optinfarma-desktop-shot" src="/optinfarma-sistema-real-v1.png" width="1265" height="712" alt="Tela real da demonstração Optinfarma em computador com busca, categorias, ofertas, benefícios e assistente virtual"/><figure className="optinfarma-phone"><span></span><img src="/optinfarma-sistema-mobile-real-v1.png" width="375" height="844" alt="Demonstração real da Optinfarma adaptada para celular"/><figcaption>EXPERIÊNCIA MOBILE</figcaption></figure></div>
           <div className="optinfarma-system-points"><span><small>01</small><strong>Busca e catálogo</strong></span><span><small>02</small><strong>Compra e benefícios</strong></span><span><small>03</small><strong>Assistente 360°</strong></span></div>
           <small className="optinfarma-system-caption">CAPTURA DA DEMONSTRAÇÃO PÚBLICA · IMAGEM ILUSTRATIVA DA EXPERIÊNCIA</small>
         </div>
