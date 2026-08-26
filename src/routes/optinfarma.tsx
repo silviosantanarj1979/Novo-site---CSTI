@@ -17,12 +17,12 @@ export const Route = createFileRoute("/optinfarma")({
 });
 
 const features = [
-  ["01", "Catálogo organizado", "Departamentos, categorias, busca e páginas de produto para facilitar a descoberta.", "ENCONTRAR COM FACILIDADE", "/optinfarma-card-catalogo-v1.png", "Busca, categorias e vitrine real da demonstração Optinfarma"],
-  ["02", "Ofertas e relacionamento", "Campanhas, descontos, clube, pontos e vantagens apresentados durante a jornada.", "RECONHECER E FIDELIZAR", "/optinfarma-card-beneficios-v1.png", "Benefícios, pontos e conveniências apresentados na Optinfarma"],
-  ["03", "Compra e conveniência", "Sacola, checkout demonstrativo, cálculo de entrega e opção de retirada em loja.", "COMPRAR SEM ATRITO", "/optinfarma-card-compra-v1.png", "Produtos e jornada de compra na demonstração Optinfarma"],
-  ["04", "Saúde conectada", "Espaço para receita digital, serviços farmacêuticos, vacinas e teleatendimento.", "CUIDADO ALÉM DA COMPRA", "/optinfarma-card-categorias-v1.png", "Categorias e serviços de saúde disponíveis na experiência Optinfarma"],
-  ["05", "Recorrência", "Jornadas como dose contínua podem apoiar recompra e relacionamento com o cliente.", "NÃO INTERROMPER O CUIDADO", "/optinfarma-card-recorrencia-v1.png", "Programa de medicamento de uso contínuo exibido na Optinfarma"],
-  ["06", "Atendimento", "WhatsApp, assistente virtual e direcionamento para atendimento humano na mesma experiência.", "RESOLVER NO CANAL CERTO", "/optinfarma-card-ofertas-v1.png", "Assistente Optinfarma 360 presente durante a navegação"],
+  ["01", "Catálogo organizado", "Departamentos, categorias, busca e páginas de produto para facilitar a descoberta.", "ENCONTRAR COM FACILIDADE"],
+  ["02", "Ofertas e relacionamento", "Campanhas, descontos, clube, pontos e vantagens apresentados durante a jornada.", "RECONHECER E FIDELIZAR"],
+  ["03", "Compra e conveniência", "Sacola, checkout demonstrativo, cálculo de entrega e opção de retirada em loja.", "COMPRAR SEM ATRITO"],
+  ["04", "Saúde conectada", "Espaço para receita digital, serviços farmacêuticos, vacinas e teleatendimento.", "CUIDADO ALÉM DA COMPRA"],
+  ["05", "Recorrência", "Jornadas como dose contínua podem apoiar recompra e relacionamento com o cliente.", "NÃO INTERROMPER O CUIDADO"],
+  ["06", "Atendimento", "WhatsApp, assistente virtual e direcionamento para atendimento humano na mesma experiência.", "RESOLVER NO CANAL CERTO"],
 ];
 
 const faqs = [
@@ -62,7 +62,7 @@ function OptinfarmaPage() {
 
     <section className="optinfarma-intro section"><div className="shell optinfarma-intro-grid"><div><p className="eyebrow ink">DA VITRINE À OPERAÇÃO</p><h2>Não é apenas colocar produtos na internet.</h2></div><div><p>Uma operação farmacêutica digital precisa organizar descoberta, confiança, disponibilidade, entrega, atendimento e continuidade. A demonstração da Optinfarma reúne essas possibilidades em uma experiência única.</p><strong>A interface apresenta a visão.<br/>A implantação conecta a realidade.</strong></div></div></section>
 
-    <section className="optinfarma-capabilities section dark"><div className="shell"><div className="heading dark-heading"><p className="eyebrow">O QUE A DEMONSTRAÇÃO APRESENTA</p><h2>Uma jornada completa, organizada em <em>seis frentes.</em></h2><p>Os recursos abaixo foram identificados na versão pública enviada. A disponibilidade real depende do escopo contratado.</p></div><div className="optinfarma-feature-grid">{features.map(([n,t,d,outcome,image,alt])=><article key={n}><img className="optinfarma-feature-image" src={image} alt={alt}/><span>{n}</span><b className="optinfarma-outcome">{outcome}</b><h3>{t}</h3><p>{d}</p></article>)}</div></div></section>
+    <section className="optinfarma-capabilities section dark"><div className="shell"><div className="heading dark-heading"><p className="eyebrow">O QUE A DEMONSTRAÇÃO APRESENTA</p><h2>Uma jornada completa, organizada em <em>seis frentes.</em></h2><p>Os recursos abaixo foram identificados na versão pública enviada. A disponibilidade real depende do escopo contratado.</p></div><div className="optinfarma-feature-grid">{features.map(([n,t,d,outcome])=><article key={n}><span>{n}</span><b className="optinfarma-outcome">{outcome}</b><h3>{t}</h3><p>{d}</p></article>)}</div></div></section>
 
     <section className="optinfarma-flow section"><div className="shell"><div className="heading"><p className="eyebrow ink">COMO O PROJETO AVANÇA</p><h2>Da demonstração à loja da sua drogaria.</h2></div><div className="optinfarma-steps">{[["01","Diagnóstico","Entendemos marca, lojas, catálogo, sistemas e operação."],["02","Escopo","Definimos recursos, integrações, regras e responsabilidades."],["03","Experiência","Aplicamos identidade, conteúdo e jornadas do negócio."],["04","Integrações","Conectamos o que for tecnicamente validado no projeto."],["05","Validação","Testamos compra, atendimento, segurança e dispositivos."],["06","Evolução","Acompanhamos dados e oportunidades após a entrada em operação."]].map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div></div></section>
 

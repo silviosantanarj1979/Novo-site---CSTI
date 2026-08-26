@@ -224,13 +224,6 @@ html,body{max-width:100%;overflow-x:hidden}img{max-width:100%}.mobile-menu[open]
 .optinfarma-feature-grid .optinfarma-outcome{position:absolute;z-index:2;right:22px;top:24px;max-width:58%;padding:8px 11px;border:1px solid #ffffff75;border-radius:18px;background:#f4fbfbe8;color:#073340;font-size:7px;font-weight:850;line-height:1.25;letter-spacing:.1em;text-align:right;box-shadow:0 8px 20px #0003;backdrop-filter:blur(6px)}
 @media(max-width:620px){.optinfarma-feature-grid .optinfarma-outcome{right:18px;top:21px;max-width:62%;padding:7px 9px;font-size:6px}}
 
-/* Cards Optinfarma: telas reais da plataforma, sem fotos conceituais genéricas */
-.optinfarma-feature-grid article{background:#071923!important}
-.optinfarma-feature-grid .optinfarma-feature-image{position:absolute;z-index:-2;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .45s ease,filter .45s ease;filter:saturate(.98) contrast(1.02)}
-.optinfarma-feature-grid article:hover .optinfarma-feature-image{transform:scale(1.025);filter:saturate(1.08) contrast(1.03)}
-.optinfarma-feature-grid article:before{z-index:-1;background:linear-gradient(180deg,#02131a00 0%,#02131a00 54%,#02131a3d 70%,#021118ba 100%)}
-.optinfarma-feature-grid article:nth-child(5) .optinfarma-feature-image,.optinfarma-feature-grid article:nth-child(6) .optinfarma-feature-image{object-position:center top}
-@media(max-width:620px){.optinfarma-feature-grid .optinfarma-feature-image{object-position:center top}.optinfarma-feature-grid article{min-height:410px}}
 
 /* Optinfarma responsive system — desktop and mobile shown together */
 .optinfarma-device-stage{position:relative;margin-right:72px;padding-bottom:34px}.optinfarma-desktop-shot{width:100%;height:auto;display:block;border:1px solid #d7e5e5;box-shadow:0 20px 55px #0006}.optinfarma-phone{position:absolute;z-index:3;right:-82px;bottom:-2px;width:168px;margin:0;padding:9px 7px 20px;border:1px solid #6fe8f1;border-radius:27px;background:#061820;box-shadow:0 24px 55px #000a}.optinfarma-phone:before{content:"";position:absolute;z-index:2;left:50%;top:5px;width:48px;height:7px;transform:translateX(-50%);border-radius:0 0 8px 8px;background:#061820}.optinfarma-phone>span{position:absolute;right:-7px;top:88px;width:3px;height:42px;border-radius:3px;background:#48d9e6}.optinfarma-phone img{width:100%;aspect-ratio:375/844;display:block;border-radius:19px 19px 13px 13px;object-fit:cover;object-position:top}.optinfarma-phone figcaption{position:absolute;left:0;right:0;bottom:6px;color:#80dce5;font-size:5px;font-weight:800;letter-spacing:.14em;text-align:center}.optinfarma-system-real>.optinfarma-device-stage+ .optinfarma-system-points{margin-top:4px}
