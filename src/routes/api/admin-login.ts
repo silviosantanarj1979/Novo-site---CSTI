@@ -12,7 +12,9 @@ export const Route = createFileRoute("/api/admin-login")({ server: { handlers: {
       return new Response(JSON.stringify({ ok: true }), { status: 200, headers: { "Content-Type": "application/json", "Set-Cookie": `csti_blog_session=${encodeURIComponent(result.access_token)}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=3600` } });
     } catch (error) {
       console.error("Erro no login do blog:", error);
-      return Response.json({ ok: false, error: "Login temporariamente indisponível." }, { status: 503 });
+      const detail = error instanceof Error ? error.message : "Falha desconhecida";
+      const safeDetail = detail.startsWith("Variáveis SUPABASE_") || detail.startsWith("SUPABASE_URL") ? detail : "Não foi possível alcançar o Supabase.";
+      return Response.json({ ok: false, error: `Login indisponível: ${safeDetail}` }, { status: 503 });
     }
   },
 } } });

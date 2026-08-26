@@ -16,9 +16,20 @@ export type BlogPost = {
 };
 
 const config = () => {
-  const url = process.env.SUPABASE_URL?.replace(/\/$/, "");
-  const anonKey = process.env.SUPABASE_ANON_KEY;
-  if (!url || !anonKey) throw new Error("Supabase do blog ainda não configurado.");
+  const clean = (value: string | undefined, variable: string) => value
+    ?.trim()
+    .replace(new RegExp(`^(?:NEXT_PUBLIC_)?${variable}\\s*=\\s*`, "i"), "")
+    .replace(/^['"]|['"]$/g, "")
+    .trim();
+  const url = clean(process.env.SUPABASE_URL, "SUPABASE_URL")?.replace(/\/$/, "");
+  const anonKey = clean(process.env.SUPABASE_ANON_KEY, "SUPABASE_(?:ANON_KEY|PUBLISHABLE_KEY)");
+  if (!url || !anonKey) throw new Error("Variáveis SUPABASE_URL ou SUPABASE_ANON_KEY ausentes.");
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol !== "https:" || !parsed.hostname.endsWith(".supabase.co")) throw new Error();
+  } catch {
+    throw new Error("SUPABASE_URL possui formato inválido.");
+  }
   return { url, anonKey };
 };
 
