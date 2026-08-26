@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 const digits = (value: unknown) => String(value ?? "").replace(/\D/g, "");
+const CSTI_LEAD_NUMBER = "5521980829206";
 
 export const Route = createFileRoute("/api/lead")({
   server: {
@@ -46,40 +47,51 @@ export const Route = createFileRoute("/api/lead")({
             hour12: false,
           }).format(new Date());
 
-          const content = [
-            "Olá! Recebemos seu contato pelo site da CSTI Brasil.",
+          const leadNumber = `55${telefone}`;
+          const confirmationContent = [
+            `Olá, ${nome}! Recebemos seu contato pelo site da CSTI Brasil.`,
             "",
-            `Nome: ${nome}`,
-            `CNPJ: ${cnpj}`,
             `Segmento: ${segmento}`,
             `Assunto: ${assunto}`,
-            `WhatsApp: ${telefone}`,
-            `Mensagem: ${mensagem}`,
-            origem ? `Origem: ${origem}` : "",
             "",
             "Nossa equipe dará continuidade ao atendimento por este canal.",
             `Data e hora: ${brasiliaDateTime} (horário de Brasília)`,
           ].filter(Boolean).join("\n");
 
-          const apiResponse = await fetch("https://cloud.apidosistema.com/api/mensagem", {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({
-              numero: `55${telefone}`,
-              id_conexao: connectionId,
-              tipo: "texto",
-              conteudo: content,
-              tipo_api: 1,
-              enviar_digitando: 1,
-              historico_chat: false,
-            }),
-          });
+          const internalContent = [
+            "NOVO LEAD — SITE CSTI BRASIL",
+            "",
+            `Nome: ${nome}`,
+            `CNPJ: ${cnpj}`,
+            `WhatsApp: +${leadNumber}`,
+            `Segmento: ${segmento}`,
+            `Assunto: ${assunto}`,
+            `Mensagem: ${mensagem}`,
+            origem ? `Origem: ${origem}` : "Origem: formulário de contato",
+            `Data e hora: ${brasiliaDateTime} (horário de Brasília)`,
+          ].join("\n");
 
-          if (!apiResponse.ok) {
+          const sendMessage = async (numero: string, conteudo: string) => {
+            const apiResponse = await fetch("https://cloud.apidosistema.com/api/mensagem", {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify({
+                numero,
+                id_conexao: connectionId,
+                tipo: "texto",
+                conteudo,
+                tipo_api: 1,
+                enviar_digitando: 1,
+                historico_chat: false,
+              }),
+            });
+
+            if (apiResponse.ok) return true;
+
             const apiText = await apiResponse.text();
             console.error("API Chat System recusou o envio Bearer:", apiResponse.status, apiText.slice(0, 300));
 
@@ -92,19 +104,28 @@ export const Route = createFileRoute("/api/lead")({
                 token,
                 conexao: String(connectionId),
                 api: "1",
-                text: content,
-                numero: `55${telefone}`,
+                text: conteudo,
+                numero,
               }).toString();
               const fallbackResponse = await fetch(fallbackUrl, {
                 method: "GET",
                 headers: { Accept: "application/json" },
               });
-              if (fallbackResponse.ok) return reply({ ok: true });
+              if (fallbackResponse.ok) return true;
               const fallbackText = await fallbackResponse.text();
               console.error("API Chat System recusou o envio DEFAULT:", fallbackResponse.status, fallbackText.slice(0, 300));
             }
 
-            return reply({ ok: false, error: "A plataforma não aceitou o envio. Confira a autorização e a conexão da API." }, 502);
+            return false;
+          };
+
+          const [confirmationSent, internalNotificationSent] = await Promise.all([
+            sendMessage(leadNumber, confirmationContent),
+            sendMessage(CSTI_LEAD_NUMBER, internalContent),
+          ]);
+
+          if (!confirmationSent || !internalNotificationSent) {
+            return reply({ ok: false, error: "A plataforma não aceitou todos os envios. Confira a autorização e a conexão da API." }, 502);
           }
 
           return reply({ ok: true });
