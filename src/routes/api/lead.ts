@@ -69,8 +69,30 @@ export const Route = createFileRoute("/api/lead")({
 
           if (!apiResponse.ok) {
             const apiText = await apiResponse.text();
-            console.error("API Chat System recusou o envio:", apiResponse.status, apiText.slice(0, 300));
-            return reply({ ok: false, error: "A plataforma não aceitou o envio. Confira a conexão da API." }, 502);
+            console.error("API Chat System recusou o envio Bearer:", apiResponse.status, apiText.slice(0, 300));
+
+            // A coleção oficial também oferece o formato DEFAULT, que autentica
+            // o envio nos parâmetros da própria requisição.
+            if (apiResponse.status === 403) {
+              const fallbackUrl = new URL("https://cloud.apidosistema.com/api/mensagem");
+              fallbackUrl.search = new URLSearchParams({
+                template: "1",
+                token,
+                conexao: String(connectionId),
+                api: "1",
+                text: content,
+                numero: `55${telefone}`,
+              }).toString();
+              const fallbackResponse = await fetch(fallbackUrl, {
+                method: "GET",
+                headers: { Accept: "application/json" },
+              });
+              if (fallbackResponse.ok) return reply({ ok: true });
+              const fallbackText = await fallbackResponse.text();
+              console.error("API Chat System recusou o envio DEFAULT:", fallbackResponse.status, fallbackText.slice(0, 300));
+            }
+
+            return reply({ ok: false, error: "A plataforma não aceitou o envio. Confira a autorização e a conexão da API." }, 502);
           }
 
           return reply({ ok: true });
