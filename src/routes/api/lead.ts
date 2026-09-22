@@ -16,21 +16,21 @@ export const Route = createFileRoute("/api/lead")({
           const segmento = text("segmento", 80);
           const selectedSubject = text("assunto", 100);
           const assunto = selectedSubject === "Outro" ? text("outroAssunto", 120) : selectedSubject;
-          const cnpj = digits(body.cnpj);
-          const telefone = digits(body.whatsapp);
+          const cnpj = digits(body['cnpj']);
+          const telefone = digits(body['whatsapp']);
           const mensagem = text("mensagem", 1500);
           const origem = text("origem", 240);
 
           if (text("empresa", 120)) return reply({ ok: true });
-          if (!nome || !segmento || !assunto || !mensagem || body.consentimento !== true) {
+          if (!nome || !segmento || !assunto || !mensagem || body['consentimento'] !== true) {
             return reply({ ok: false, error: "Preencha todos os campos obrigatórios." }, 400);
           }
           if (cnpj.length !== 14 || telefone.length < 10 || telefone.length > 11) {
             return reply({ ok: false, error: "Confira o CNPJ e o WhatsApp informado." }, 400);
           }
 
-          const token = process.env.APIDOSISTEMA_TOKEN;
-          const connectionId = Number(process.env.APIDOSISTEMA_CONNECTION_ID);
+          const token = process.env['APIDOSISTEMA_TOKEN'];
+          const connectionId = Number(process.env['APIDOSISTEMA_CONNECTION_ID']);
           if (!token || !Number.isInteger(connectionId) || connectionId <= 0) {
             console.error("Variáveis APIDOSISTEMA não configuradas corretamente.");
             return reply({ ok: false, error: "A integração de atendimento ainda não está configurada." }, 503);
