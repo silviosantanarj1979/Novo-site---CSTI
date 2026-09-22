@@ -115,6 +115,11 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src="https://converse.talkdata.pro/webchat/sdk.js";g.defer=true;g.async=true;s.parentNode.insertBefore(g,s);g.onload=function(){window.envioMensagemSDK.run({widgetToken:"e723add5-80d3-4b46-934b-58c8f0c806ae",baseUrl:"https://converseapi.talkdata.pro"})}})(document,"script");`,
+          }}
+        />
       </body>
     </html>
   );
