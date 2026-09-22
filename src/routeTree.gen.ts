@@ -10,13 +10,98 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as OptinfarmaRouteImport } from './routes/optinfarma'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
+import { Route as RioDeJaneiroRouteImport } from './routes/rio-de-janeiro'
+import { Route as TermosDeUsoRouteImport } from './routes/termos-de-uso'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as ApiAdminCategoriesRouteImport } from './routes/api/admin-categories'
+import { Route as ApiAdminLoginRouteImport } from './routes/api/admin-login'
+import { Route as ApiAdminMediaRouteImport } from './routes/api/admin-media'
+import { Route as ApiAdminPostsRouteImport } from './routes/api/admin-posts'
+import { Route as ApiBlogRouteImport } from './routes/api/blog'
+import { Route as ApiLeadRouteImport } from './routes/api/lead'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as SegmentosIndexRouteImport } from './routes/segmentos/index'
 import { Route as SegmentosDrogariasEFarmaciasRouteImport } from './routes/segmentos/drogarias-e-farmacias'
 import { Route as SolucoesAutomacaoEIaRouteImport } from './routes/solucoes/automacao-e-ia'
+import { Route as ApiBlogSlugRouteImport } from './routes/api/blog.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OptinfarmaRoute = OptinfarmaRouteImport.update({
+  id: '/optinfarma',
+  path: '/optinfarma',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RioDeJaneiroRoute = RioDeJaneiroRouteImport.update({
+  id: '/rio-de-janeiro',
+  path: '/rio-de-janeiro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermosDeUsoRoute = TermosDeUsoRouteImport.update({
+  id: '/termos-de-uso',
+  path: '/termos-de-uso',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminCategoriesRoute = ApiAdminCategoriesRouteImport.update({
+  id: '/api/admin-categories',
+  path: '/api/admin-categories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminLoginRoute = ApiAdminLoginRouteImport.update({
+  id: '/api/admin-login',
+  path: '/api/admin-login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminMediaRoute = ApiAdminMediaRouteImport.update({
+  id: '/api/admin-media',
+  path: '/api/admin-media',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminPostsRoute = ApiAdminPostsRouteImport.update({
+  id: '/api/admin-posts',
+  path: '/api/admin-posts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBlogRoute = ApiBlogRouteImport.update({
+  id: '/api/blog',
+  path: '/api/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiLeadRoute = ApiLeadRouteImport.update({
+  id: '/api/lead',
+  path: '/api/lead',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SegmentosIndexRoute = SegmentosIndexRouteImport.update({
@@ -35,51 +120,160 @@ const SolucoesAutomacaoEIaRoute = SolucoesAutomacaoEIaRouteImport.update({
   path: '/solucoes/automacao-e-ia',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiBlogSlugRoute = ApiBlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ApiBlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/optinfarma': typeof OptinfarmaRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/rio-de-janeiro': typeof RioDeJaneiroRoute
+  '/termos-de-uso': typeof TermosDeUsoRoute
+  '/api/admin-categories': typeof ApiAdminCategoriesRoute
+  '/api/admin-login': typeof ApiAdminLoginRoute
+  '/api/admin-media': typeof ApiAdminMediaRoute
+  '/api/admin-posts': typeof ApiAdminPostsRoute
+  '/api/blog': typeof ApiBlogRouteWithChildren
+  '/api/lead': typeof ApiLeadRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/segmentos/drogarias-e-farmacias': typeof SegmentosDrogariasEFarmaciasRoute
   '/solucoes/automacao-e-ia': typeof SolucoesAutomacaoEIaRoute
+  '/admin/': typeof AdminIndexRoute
+  '/blog/': typeof BlogIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
+  '/api/blog/$slug': typeof ApiBlogSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/optinfarma': typeof OptinfarmaRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/rio-de-janeiro': typeof RioDeJaneiroRoute
+  '/termos-de-uso': typeof TermosDeUsoRoute
+  '/api/admin-categories': typeof ApiAdminCategoriesRoute
+  '/api/admin-login': typeof ApiAdminLoginRoute
+  '/api/admin-media': typeof ApiAdminMediaRoute
+  '/api/admin-posts': typeof ApiAdminPostsRoute
+  '/api/blog': typeof ApiBlogRouteWithChildren
+  '/api/lead': typeof ApiLeadRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/segmentos/drogarias-e-farmacias': typeof SegmentosDrogariasEFarmaciasRoute
   '/solucoes/automacao-e-ia': typeof SolucoesAutomacaoEIaRoute
+  '/admin': typeof AdminIndexRoute
+  '/blog': typeof BlogIndexRoute
   '/segmentos': typeof SegmentosIndexRoute
+  '/api/blog/$slug': typeof ApiBlogSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/optinfarma': typeof OptinfarmaRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/rio-de-janeiro': typeof RioDeJaneiroRoute
+  '/termos-de-uso': typeof TermosDeUsoRoute
+  '/api/admin-categories': typeof ApiAdminCategoriesRoute
+  '/api/admin-login': typeof ApiAdminLoginRoute
+  '/api/admin-media': typeof ApiAdminMediaRoute
+  '/api/admin-posts': typeof ApiAdminPostsRoute
+  '/api/blog': typeof ApiBlogRouteWithChildren
+  '/api/lead': typeof ApiLeadRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/segmentos/drogarias-e-farmacias': typeof SegmentosDrogariasEFarmaciasRoute
   '/solucoes/automacao-e-ia': typeof SolucoesAutomacaoEIaRoute
+  '/admin/': typeof AdminIndexRoute
+  '/blog/': typeof BlogIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
+  '/api/blog/$slug': typeof ApiBlogSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/contato'
+    | '/optinfarma'
+    | '/privacidade'
+    | '/rio-de-janeiro'
+    | '/termos-de-uso'
+    | '/api/admin-categories'
+    | '/api/admin-login'
+    | '/api/admin-media'
+    | '/api/admin-posts'
+    | '/api/blog'
+    | '/api/lead'
+    | '/blog/$slug'
     | '/segmentos/drogarias-e-farmacias'
     | '/solucoes/automacao-e-ia'
+    | '/admin/'
+    | '/blog/'
     | '/segmentos/'
+    | '/api/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/contato'
+    | '/optinfarma'
+    | '/privacidade'
+    | '/rio-de-janeiro'
+    | '/termos-de-uso'
+    | '/api/admin-categories'
+    | '/api/admin-login'
+    | '/api/admin-media'
+    | '/api/admin-posts'
+    | '/api/blog'
+    | '/api/lead'
+    | '/blog/$slug'
     | '/segmentos/drogarias-e-farmacias'
     | '/solucoes/automacao-e-ia'
+    | '/admin'
+    | '/blog'
     | '/segmentos'
+    | '/api/blog/$slug'
   id:
     | '__root__'
     | '/'
+    | '/contato'
+    | '/optinfarma'
+    | '/privacidade'
+    | '/rio-de-janeiro'
+    | '/termos-de-uso'
+    | '/api/admin-categories'
+    | '/api/admin-login'
+    | '/api/admin-media'
+    | '/api/admin-posts'
+    | '/api/blog'
+    | '/api/lead'
+    | '/blog/$slug'
     | '/segmentos/drogarias-e-farmacias'
     | '/solucoes/automacao-e-ia'
+    | '/admin/'
+    | '/blog/'
     | '/segmentos/'
+    | '/api/blog/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContatoRoute: typeof ContatoRoute
+  OptinfarmaRoute: typeof OptinfarmaRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
+  RioDeJaneiroRoute: typeof RioDeJaneiroRoute
+  TermosDeUsoRoute: typeof TermosDeUsoRoute
+  ApiAdminCategoriesRoute: typeof ApiAdminCategoriesRoute
+  ApiAdminLoginRoute: typeof ApiAdminLoginRoute
+  ApiAdminMediaRoute: typeof ApiAdminMediaRoute
+  ApiAdminPostsRoute: typeof ApiAdminPostsRoute
+  ApiBlogRoute: typeof ApiBlogRouteWithChildren
+  ApiLeadRoute: typeof ApiLeadRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   SegmentosDrogariasEFarmaciasRoute: typeof SegmentosDrogariasEFarmaciasRoute
   SolucoesAutomacaoEIaRoute: typeof SolucoesAutomacaoEIaRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   SegmentosIndexRoute: typeof SegmentosIndexRoute
 }
 
@@ -90,6 +284,104 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/optinfarma': {
+      id: '/optinfarma'
+      path: '/optinfarma'
+      fullPath: '/optinfarma'
+      preLoaderRoute: typeof OptinfarmaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rio-de-janeiro': {
+      id: '/rio-de-janeiro'
+      path: '/rio-de-janeiro'
+      fullPath: '/rio-de-janeiro'
+      preLoaderRoute: typeof RioDeJaneiroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/termos-de-uso': {
+      id: '/termos-de-uso'
+      path: '/termos-de-uso'
+      fullPath: '/termos-de-uso'
+      preLoaderRoute: typeof TermosDeUsoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin-categories': {
+      id: '/api/admin-categories'
+      path: '/api/admin-categories'
+      fullPath: '/api/admin-categories'
+      preLoaderRoute: typeof ApiAdminCategoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin-login': {
+      id: '/api/admin-login'
+      path: '/api/admin-login'
+      fullPath: '/api/admin-login'
+      preLoaderRoute: typeof ApiAdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin-media': {
+      id: '/api/admin-media'
+      path: '/api/admin-media'
+      fullPath: '/api/admin-media'
+      preLoaderRoute: typeof ApiAdminMediaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin-posts': {
+      id: '/api/admin-posts'
+      path: '/api/admin-posts'
+      fullPath: '/api/admin-posts'
+      preLoaderRoute: typeof ApiAdminPostsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/blog': {
+      id: '/api/blog'
+      path: '/api/blog'
+      fullPath: '/api/blog'
+      preLoaderRoute: typeof ApiBlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/lead': {
+      id: '/api/lead'
+      path: '/api/lead'
+      fullPath: '/api/lead'
+      preLoaderRoute: typeof ApiLeadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/segmentos/': {
@@ -113,13 +405,45 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolucoesAutomacaoEIaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/blog/$slug': {
+      id: '/api/blog/$slug'
+      path: '/$slug'
+      fullPath: '/api/blog/$slug'
+      preLoaderRoute: typeof ApiBlogSlugRouteImport
+      parentRoute: typeof ApiBlogRoute
+    }
   }
 }
 
+interface ApiBlogRouteChildren {
+  ApiBlogSlugRoute: typeof ApiBlogSlugRoute
+}
+
+const ApiBlogRouteChildren: ApiBlogRouteChildren = {
+  ApiBlogSlugRoute: ApiBlogSlugRoute,
+}
+
+const ApiBlogRouteWithChildren =
+  ApiBlogRoute._addFileChildren(ApiBlogRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContatoRoute: ContatoRoute,
+  OptinfarmaRoute: OptinfarmaRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
+  RioDeJaneiroRoute: RioDeJaneiroRoute,
+  TermosDeUsoRoute: TermosDeUsoRoute,
+  ApiAdminCategoriesRoute: ApiAdminCategoriesRoute,
+  ApiAdminLoginRoute: ApiAdminLoginRoute,
+  ApiAdminMediaRoute: ApiAdminMediaRoute,
+  ApiAdminPostsRoute: ApiAdminPostsRoute,
+  ApiBlogRoute: ApiBlogRouteWithChildren,
+  ApiLeadRoute: ApiLeadRoute,
+  BlogSlugRoute: BlogSlugRoute,
   SegmentosDrogariasEFarmaciasRoute: SegmentosDrogariasEFarmaciasRoute,
   SolucoesAutomacaoEIaRoute: SolucoesAutomacaoEIaRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  BlogIndexRoute: BlogIndexRoute,
   SegmentosIndexRoute: SegmentosIndexRoute,
 }
 export const routeTree = rootRouteImport
