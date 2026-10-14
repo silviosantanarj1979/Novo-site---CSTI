@@ -1,22 +1,61 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { InfoModal } from "../../components/info-modal";
 import { BackToTop, SiteFooter, SiteHeader } from "../../components/site-shell";
-import { whatsappLink } from "../../lib/whatsapp";
 
-export const Route=createFileRoute("/segmentos/")({head:()=>({meta:[{title:"Soluções por Segmento: Varejo, Saúde e Serviços | CSTI Brasil"},{name:"description",content:"Omnichannel, automação e IA para varejo, drogarias, serviços, saúde, educação, empresas e setor público em todo o Brasil."},{property:"og:title",content:"Soluções de tecnologia por segmento | CSTI Brasil"},{property:"og:description",content:"Estratégias de comunicação, atendimento e automação adaptadas à realidade de cada mercado."},{property:"og:url",content:"https://cstibrasil.com.br/segmentos"},{property:"og:image",content:"https://cstibrasil.com.br/segmentos-editorial-v1.png"}],links:[{rel:"canonical",href:"https://cstibrasil.com.br/segmentos"}]}),component:SegmentosPage});
-const Arrow=()=> <span aria-hidden="true">↗</span>;
-const markets=[
-  ["01","Varejo","Conecte descoberta, atendimento, oportunidade e relacionamento em uma jornada contínua.","Instagram|WhatsApp|Equipe|Relacionamento","#contato","CONVERSÃO E RELACIONAMENTO"],
-  ["02","Drogarias e Farmácias","Integre o atendimento digital à rotina do balcão, com contexto, agilidade e histórico.","Cliente|Atendimento|Balcão|Histórico","/segmentos/drogarias-e-farmacias","DIGITAL CONECTADO À LOJA"],
-  ["03","Serviços","Organize solicitações, qualificação, especialistas e retorno em um fluxo claro.","Contato|Triagem|Especialista|Retorno","#contato","DISTRIBUIÇÃO E CONTINUIDADE"],
-  ["04","Saúde","Estruture agendamentos, orientações e retornos em jornadas que exigem cuidado.","Paciente|Recepção|Unidade|Retorno","#contato","ACOLHIMENTO E ORGANIZAÇÃO"],
-  ["05","Educação","Conecte captação, secretaria, matrícula e relacionamento com alunos e responsáveis.","Interesse|Matrícula|Aluno|Relacionamento","#contato","JORNADA DO ALUNO"],
-  ["06","Empresas","Estabeleça governança para canais, equipes, departamentos e indicadores.","Canal|Departamento|Processo|Gestão","#contato","GOVERNANÇA MULTIEQUIPE"],
-  ["07","Setor Público","Organize o atendimento ao cidadão com distribuição, histórico e rastreabilidade.","Cidadão|Protocolo|Secretaria|Resposta","#contato","RASTREABILIDADE E SERVIÇO"],
+export const Route = createFileRoute("/segmentos/")({
+  head: () => ({
+    meta: [
+      { title: "Segmentos | CSTI Brasil" },
+      { name: "description", content: "Tecnologia que entende cada cenário: varejo, drogarias e farmácias, serviços, saúde, educação, empresas e setor público." },
+      { property: "og:title", content: "Segmentos | CSTI Brasil" },
+      { property: "og:description", content: "Partimos da rotina, da linguagem e dos desafios reais de cada mercado." },
+      { property: "og:url", content: "https://cstibrasil.com.br/segmentos" },
+    ],
+    links: [{ rel: "canonical", href: "https://cstibrasil.com.br/segmentos" }],
+  }),
+  component: SegmentosPage,
+});
+
+const markets = ["Varejo", "Drogarias e Farmácias", "Serviços", "Saúde", "Educação", "Empresas", "Setor Público"];
+const captions = ["Varejo", "Saúde & varejo", "Serviços", "Saúde", "Educação", "Corporativo", "Setor público"];
+const descriptions = [
+  "Jornadas que convertem atendimento em relacionamento.",
+  "Do WhatsApp ao balcão, com contexto e continuidade.",
+  "Triagem, agenda e especialistas na mesma conversa.",
+  "Orientação e retorno em jornadas mais humanas.",
+  "Captação, matrícula e relacionamento com alunos.",
+  "Canais, departamentos e governança conectados.",
+  "Atendimento ao cidadão com rastreabilidade.",
 ];
-function SegmentosPage(){const[selected,setSelected]=useState<number|null>(null);const selectedMarket=selected===null?null:markets[selected];return <main id="inicio" className="inner-page"><section className="inner-hero segment-index-hero dark"><SiteHeader/><div className="shell inner-hero-grid"><div><p className="eyebrow">SOLUÇÕES POR SEGMENTO</p><h1>Tecnologia que respeita a lógica de <em>cada operação.</em></h1><p className="lead">Não existe uma única jornada de comunicação. Cada mercado exige canais, processos e responsabilidades desenhados para sua realidade.</p></div><div className="sector-orbit sector-hub" aria-hidden="true"><div className="hub-lines"><i></i><i></i><i></i><i></i></div><b><img src="/csti-simbolo-ciano.png" alt=""/><small>HUB CSTI</small></b>{[["Canais","Conexão"],["Pessoas","Experiência"],["Processos","Fluxo"],["Dados","Contexto"]].map(([x,d],i)=><span className={`sector-node sector-node-${i+1}`} key={x}><strong>{x}</strong><small>{d}</small></span>)}</div></div></section>
-  <section className="segment-intro section"><div className="shell heading"><p className="eyebrow ink">CONTEXTO ANTES DA TECNOLOGIA</p><h2>A mesma plataforma.<br/><em>Estratégias diferentes.</em></h2><p>Partimos da operação para definir como atendimento, automação, inteligência e integrações devem funcionar em conjunto.</p></div></section>
-   <section className="market-grid-section"><div className="shell market-grid">{markets.map(([n,name,text,flow,,focus],index)=><button type="button" className={`market-card market-card-${index+1}`} onClick={()=>setSelected(index)} key={name}><div className="market-top"><span>{n}</span><small>{focus}</small></div><div className="market-copy"><h2>{name}</h2><p>{text}</p><div className="mini-flow">{(flow ?? "").split("|").map((step,i)=><span key={step}><i>0{i+1}</i>{step}</span>)}</div><strong>Entender esta solução <Arrow/></strong></div></button>)}</div></section>
-  <section className="segment-method section dark"><div className="shell"><div className="heading dark-heading"><p className="eyebrow">MÉTODO CSTI</p><h2>Da realidade atual à <em>operação estruturada.</em></h2><p>Uma sequência consultiva para decidir tecnologia com clareza e implementar com consistência.</p></div><div className="method-flow">{[["01","Diagnóstico","Canais, equipes, processos e objetivos."],["02","Arquitetura","Ambiente, integrações e responsabilidades."],["03","Implementação","Configuração, fluxos e preparação da operação."],["04","Evolução","Acompanhamento, ajustes e novos casos de uso."]].map(([n,t,d])=><div key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></div>)}</div></div></section>
-  <section className="final dark" id="contato"><div className="shell"><p className="eyebrow">CONVERSE COM A CSTI</p><h2>Qual é a lógica da sua operação?</h2><p className="lead">Vamos entender o contexto antes de indicar a tecnologia.</p><a className="button" href={whatsappLink("soluções por segmento")} target="_blank" rel="noreferrer">Fale com um especialista <Arrow/></a></div></section><SiteFooter/><BackToTop/>{selectedMarket&&<InfoModal open eyebrow={selectedMarket[5]!} title={selectedMarket[1]!} onClose={()=>setSelected(null)} action={selectedMarket[1]==="Drogarias e Farmácias"?<a className="button" href="/segmentos/drogarias-e-farmacias">Abrir minisite <Arrow/></a>:<a className="button" href={whatsappLink(`soluções para o segmento ${selectedMarket[1]!}`)} target="_blank" rel="noreferrer">Falar com especialista <Arrow/></a>}><p>{selectedMarket[2]!}</p><div className="modal-journey">{selectedMarket[3]!.split("|").map((step,i)=><span key={step}><small>0{i+1}</small>{step}</span>)}</div></InfoModal>}</main>}
+
+function SegmentosPage() {
+  return <main id="inicio" className="agency-home">
+    <SiteHeader />
+    <section className="agency-segments" id="segmentos">
+      <div className="shell">
+        <div className="agency-section-head segment-heading">
+          <p className="agency-index">05 — SEGMENTOS</p>
+          <h1>Tecnologia que entende cada cenário.</h1>
+          <p>Partimos da rotina, da linguagem e dos desafios reais de cada mercado.</p>
+          <div className="csti-photo-mark" aria-hidden="true"><i></i><b></b></div>
+        </div>
+        <div className="segment-showcase">
+          {markets.map((market, i) => <a
+            className={`segment-visual segment-visual-${i + 1}`}
+            href={market === "Drogarias e Farmácias" ? "/segmentos/drogarias-e-farmacias" : "/contato"}
+            key={market}
+          >
+            <span className="segment-number">0{i + 1}</span>
+            <div>
+              <p>{captions[i]}</p>
+              <strong>{market}</strong>
+              <small>{descriptions[i]}</small>
+            </div>
+            <span className="segment-arrow" aria-hidden="true">↗</span>
+          </a>)}
+        </div>
+      </div>
+    </section>
+    <SiteFooter />
+    <BackToTop />
+  </main>;
+}
