@@ -34,7 +34,7 @@ function SegmentosPage() {
       <div className="shell">
         <div className="agency-section-head segment-heading">
           <p className="agency-index">05 — SEGMENTOS</p>
-          <h1>Tecnologia que entende cada cenário.</h1>
+          <h2>Tecnologia que entende cada cenário.</h2>
           <p>Partimos da rotina, da linguagem e dos desafios reais de cada mercado.</p>
           <div className="csti-photo-mark" aria-hidden="true"><i></i><b></b></div>
         </div>
