@@ -1,10 +1,11 @@
 /**
- * Conteúdos demonstrativos originais do arquivo blog.zip fornecido pela CSTI.
- * Fonte: src/shared/blog/data.ts (Magic Patterns).
- * O ZIP contém resumos, capas remotas e metadados, NÃO textos integrais.
- * Estes registros são prévias locais e NÃO são publicações do Sanity.
+ * Títulos e capas preservados do blog.zip, agora com artigos editoriais originais
+ * desenvolvidos pela CSTI Brasil para leitura integral. O conteúdo não foi enviado
+ * dentro do ZIP: foi redigido e enriquecido nesta atualização.
+ * Os documentos podem ser substituídos no futuro pelo Sanity com o mesmo slug.
  */
 import type { BlogPost } from "./blog-server";
+import { blocksFromEditorial, readingMinutes, richArticles } from "./blog-rich-content";
 
 const images = {
   ops: "https://cdn.magicpatterns.com/patterns/generated-images/f575d64c-ee61-40c4-a34f-f2ccfbfd7c46.jpg",
@@ -39,7 +40,7 @@ const zipEntries: ZipEntry[] = [
   {
     slug: "whatsapp-api-oficial-guia",
     title: "WhatsApp API oficial: guia completo para sair do número pessoal",
-    excerpt: "Verificação, templates aprovados, custos por conversa e o que muda na rotina do time.",
+    excerpt: "Verificação, mensagens de template, regras atuais de cobrança e o que muda na rotina de uma operação profissional.",
     cover: images.phone, category: "WhatsApp API", tags: ["meta-business", "templates"],
     date: "2025-05-08", readingMinutes: 12,
   },
@@ -73,32 +74,40 @@ const zipEntries: ZipEntry[] = [
   },
   {
     slug: "templates-que-convertem",
-    title: "12 templates de WhatsApp que convertem (e são aprovados pela Meta)",
+    title: "12 modelos de WhatsApp para atendimento e vendas: como usar corretamente",
     excerpt: "Modelos prontos para confirmação, recuperação de carrinho e pesquisa de satisfação.",
     cover: images.phone, category: "WhatsApp API", tags: ["templates", "varejo"],
     date: "2025-04-09", readingMinutes: 10,
   },
 ];
 
-export const zipBlogPosts: BlogPost[] = zipEntries.map((entry) => ({
+export const zipBlogPosts: BlogPost[] = zipEntries.map((entry) => {
+  const editorial = richArticles[entry.slug];
+  if (!editorial) throw new Error("Falta artigo completo: " + entry.slug);
+  return {
   id: "zip-" + entry.slug,
   slug: entry.slug,
   title: entry.title,
   excerpt: entry.excerpt,
-  content: "",
+  content: editorial.body,
+  content_blocks: blocksFromEditorial(editorial.body),
+  editorial_takeaways: editorial.takeaways,
+  editorial_sources: editorial.sources,
+  editorial_updated_at: "2026-11-11",
   cover_url: entry.cover,
   category: entry.category,
   tags: entry.tags,
   status: "published",
   seo_title: null,
   seo_description: null,
-  published_at: entry.date + "T12:00:00.000Z",
+  published_at: "2026-11-11T12:00:00.000Z",
   created_at: entry.date + "T12:00:00.000Z",
   updated_at: entry.date + "T12:00:00.000Z",
-  sample_from_zip: true,
-  reading_minutes: entry.readingMinutes,
+  sample_from_zip: false,
+  reading_minutes: readingMinutes(editorial.body),
   featured: Boolean(entry.featured),
-}));
+  };
+});
 
 export const getZipBlogPost = (slug: string) => zipBlogPosts.find((post) => post.slug === slug) ?? null;
 
