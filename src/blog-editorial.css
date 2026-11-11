@@ -58,3 +58,6 @@
 @media(max-width:780px){.csti-blog-page .shell{width:calc(100% - 40px)}.csti-blog-banner{padding:155px 0 55px}.csti-blog-featured-grid{grid-template-columns:1fr}.csti-blog-featured{padding-bottom:46px}.csti-blog-editorial{padding-top:60px;padding-bottom:70px}.csti-blog-topline{align-items:flex-start;flex-direction:column}.csti-blog-search{width:100%}.csti-blog-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 18px}.csti-blog-cta .shell{align-items:flex-start;flex-direction:column}}
 @media(max-width:560px){.csti-blog-cards{grid-template-columns:1fr}.csti-blog-tile-image{border-radius:20px}.csti-blog-featured-body h2{font-size:30px}.csti-blog-banner-content h1{font-size:40px}.csti-blog-featured-bottom{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){.csti-blog-page *{transition:none!important;animation:none!important}}
+
+/* Indicadores honestos para prévias editoriais recuperadas do blog.zip */
+.csti-blog-zip-note{margin:0 0 22px;padding:15px 18px;border-left:3px solid #0dbcd9;border-radius:6px;background:#f2f9fa;color:#42545d;font-size:13px;line-height:1.55}
