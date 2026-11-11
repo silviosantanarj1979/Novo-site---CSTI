@@ -1,5 +1,50 @@
-# Configuração do Blog CSTI Brasil
+# Blog CSTI Brasil — Sanity CMS + Lovable
 
+> **Estado:** menu e interface implementados. A conexão com Sanity será ativada após configurar SANITY_PROJECT_ID no servidor. Sem essa variável, o blog continua lendo o Supabase.
+
+> **Atenção:** o painel existente em /admin publica no Supabase, e NÃO no Sanity. Quando o Sanity for ativado, novos artigos devem ser publicados no Sanity Studio.
+
+## Criar e publicar o Sanity Studio
+
+1. Acesse https://www.sanity.io/manage e crie o projeto CSTI Brasil Blog.
+2. Escolha o dataset público production e copie o Project ID.
+3. No repositório, entre na pasta sanity-studio e execute npm install.
+4. Copie sanity-studio/.env.example para sanity-studio/.env e preencha SANITY_STUDIO_PROJECT_ID e SANITY_STUDIO_DATASET.
+5. Execute npm run dev para testar; em seguida npm run deploy para publicar o painel em endereço .sanity.studio.
+6. No Studio, crie um documento Artigo do Blog com título, slug, resumo, capa, categoria, data e conteúdo, depois clique Publish.
+
+## Vincular o site (Vercel ou hospedagem atual)
+
+No ambiente de produção do site adicione:
+
+```dotenv
+SANITY_PROJECT_ID=SEU_PROJECT_ID
+SANITY_DATASET=production
+```
+
+Esses dois valores não são senhas. Faça um novo deploy para que as variáveis cheguem ao servidor. A leitura usa a API oficial do Sanity e não exige token para dataset público. Não copie tokens de escrita para o código público.
+
+As rotas existentes /api/blog e /api/blog/:slug passam a consultar os documentos publicados no Sanity, abastecendo /blog e /blog/:slug.
+
+## Validação
+
+1. Confira a navegação Blog nos menus desktop e mobile.
+2. Publique um artigo real no Sanity Studio.
+3. Abra https://cstibrasil.com.br/api/blog; deve aparecer source: sanity e o artigo criado.
+4. Abra https://cstibrasil.com.br/blog/SEU-SLUG e confira capa, data, textos, links e celular.
+5. O conteúdo de exemplo do ZIP de layout não foi publicado.
+
+## Cuidados
+
+- O site mantém o Supabase como opção anterior até que SANITY_PROJECT_ID seja configurado.
+- Artigos do Supabase não são migrados automaticamente. O painel antigo em /admin não grava no Sanity.
+- O dataset configurado para leitura pública precisa ser público; datasets privados exigem backend com autenticação no servidor.
+- Não coloque tokens, senhas e chaves privadas no repositório.
+- O frontend faz as consultas ao Sanity pelo servidor (evitando necessidades de CORS no navegador para essa leitura).
+
+---
+
+## Painel Supabase anterior (legado)
 O blog funciona com Supabase para permitir criar e publicar artigos sem Lovable, GitHub ou novo deploy.
 
 ## 1. Criar o projeto
