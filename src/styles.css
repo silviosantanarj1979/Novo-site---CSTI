@@ -244,3 +244,8 @@ html,body{max-width:100%;overflow-x:hidden}img{max-width:100%}.mobile-menu[open]
 .article-body strong{font-weight:750}
 .article-body em{font-style:italic}
 .article-body code{padding:2px 6px;border-radius:4px;background:#eff5f6;font-size:.9em}
+
+/* Prévia editorial importada do ZIP */
+.article-preview-note{padding:30px;border:1px solid #cde9ed;border-left:4px solid #08b8d4;border-radius:12px;background:#f3fafb}
+.article-preview-note strong{display:block;color:#092a36;font-size:22px}
+.article-preview-note p{margin:14px 0 0;color:#506773;font-size:16px;line-height:1.7}
