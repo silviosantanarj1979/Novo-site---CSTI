@@ -13,6 +13,9 @@ export type BlogPost = {
   sample_from_zip?: boolean;
   reading_minutes?: number;
   featured?: boolean;
+  editorial_takeaways?: string[];
+  editorial_sources?: Array<{ label: string; url: string }>;
+  editorial_updated_at?: string;
   seo_title: string | null;
   seo_description: string | null;
   published_at: string | null;
