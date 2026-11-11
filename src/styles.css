@@ -233,3 +233,14 @@ html,body{max-width:100%;overflow-x:hidden}img{max-width:100%}.mobile-menu[open]
 
 /* Menu principal expandido com Blog: reduzir espaçamentos sem alterar a identidade */
 @media(min-width:1081px){.site-header .desktop-nav{gap:clamp(10px,1.15vw,19px)}.site-header .header-actions{gap:14px}}
+
+/* Texto editorial de artigos Sanity */
+.article-back-link{display:inline-block;margin:0 0 38px;color:#8bdcec;font-size:13px;font-weight:700}
+.article-back-link:hover{text-decoration:underline}
+.article-body h2{margin:42px 0 20px;font-size:clamp(29px,3vw,42px);line-height:1.2;letter-spacing:-.03em}
+.article-body h3{margin:32px 0 18px;font-size:clamp(23px,2.2vw,30px);line-height:1.25;letter-spacing:-.02em}
+.article-body .article-list{margin:0 0 14px;padding-left:28px;font-size:19px;line-height:1.8;color:#33464f}
+.article-body .article-list li{padding-left:4px}
+.article-body strong{font-weight:750}
+.article-body em{font-style:italic}
+.article-body code{padding:2px 6px;border-radius:4px;background:#eff5f6;font-size:.9em}
