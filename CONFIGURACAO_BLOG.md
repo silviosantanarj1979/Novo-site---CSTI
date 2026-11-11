@@ -32,12 +32,14 @@ As rotas existentes /api/blog e /api/blog/:slug passam a consultar os documentos
 2. Publique um artigo real no Sanity Studio.
 3. Abra https://cstibrasil.com.br/api/blog; deve aparecer source: sanity e o artigo criado.
 4. Abra https://cstibrasil.com.br/blog/SEU-SLUG e confira capa, data, textos, links e celular.
-5. O conteúdo de exemplo do ZIP de layout não foi publicado.
+5. As sete prévias do ZIP aparecem na listagem e abrem páginas de prévia, sem inventar o texto completo ausente do arquivo.
 
 ## Cuidados
 
 - O site mantém o Supabase como opção anterior até que SANITY_PROJECT_ID seja configurado.
 - Artigos do Supabase não são migrados automaticamente. O painel antigo em /admin não grava no Sanity.
+- Os sete registros do ZIP são lidos de src/lib/blog-zip-seed.ts. Eles aparecem mesmo sem CMS e continuam visíveis ao lado de artigos reais, a menos que um artigo real use o mesmo slug.
+- Essas sete prévias NÃO estão cadastradas no Sanity: para torná-las editáveis no Studio, ainda será preciso criar/importar documentos no projeto Sanity após sua configuração.
 - O dataset configurado para leitura pública precisa ser público; datasets privados exigem backend com autenticação no servidor.
 - Não coloque tokens, senhas e chaves privadas no repositório.
 - O frontend faz as consultas ao Sanity pelo servidor (evitando necessidades de CORS no navegador para essa leitura).
