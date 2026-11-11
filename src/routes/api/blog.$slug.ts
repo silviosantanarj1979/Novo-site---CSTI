@@ -1,10 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { supabaseRequest } from "../../lib/blog-server";
+import { sanityConfigured, getSanityPost } from "../../lib/sanity-server";
 
 export const Route = createFileRoute("/api/blog/$slug")({
   server: { handlers: {
     GET: async ({ params }) => {
       try {
+        if (sanityConfigured()) {
+          const post = await getSanityPost(params.slug);
+          return post ? Response.json({ ok: true, post, source: "sanity" }) : Response.json({ ok: false, error: "Artigo não encontrado." }, { status: 404 });
+        }
         const response = await supabaseRequest(`/rest/v1/blog_posts?select=*&slug=eq.${encodeURIComponent(params.slug)}&status=eq.published&limit=1`);
         const posts = response.ok ? await response.json() : [];
         return posts[0] ? Response.json({ ok: true, post: posts[0] }) : Response.json({ ok: false, error: "Artigo não encontrado." }, { status: 404 });
