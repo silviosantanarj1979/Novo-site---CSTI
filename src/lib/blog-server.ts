@@ -9,6 +9,10 @@ export type BlogPost = {
   category: string;
   tags: string[];
   status: "draft" | "published";
+  /** Registros demonstrativos importados do arquivo blog.zip, sem corpo integral. */
+  sample_from_zip?: boolean;
+  reading_minutes?: number;
+  featured?: boolean;
   seo_title: string | null;
   seo_description: string | null;
   published_at: string | null;
