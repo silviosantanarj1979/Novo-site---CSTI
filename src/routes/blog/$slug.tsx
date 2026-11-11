@@ -78,7 +78,12 @@ function ArticlePage() {
         </div>
       </header>
       {post.cover_url && <div className="shell article-cover"><img src={post.cover_url} alt={post.title} /></div>}
-      <div className="shell article-body"><ArticleContent post={post} /></div>
+      <div className="shell article-body">
+        {post.sample_from_zip ? <div className="article-preview-note">
+          <strong>Prévia editorial importada do arquivo ZIP</strong>
+          <p>Este conteúdo foi recuperado do modelo enviado, que inclui título, resumo, categoria e imagem, mas não fornece o texto completo da matéria. O conteúdo integral poderá ser publicado pelo Sanity quando estiver disponível.</p>
+        </div> : <ArticleContent post={post} />}
+      </div>
     </article>
     <section className="article-cta dark"><div className="shell"><h2>Quer aplicar isso à sua operação?</h2><a className="button" href="/contato?origem=blog">Fale com um especialista ↗</a></div></section>
     <SiteFooter />
