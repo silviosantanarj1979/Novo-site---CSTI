@@ -83,7 +83,10 @@ function ArticlePage() {
       .then((response) => response.json())
       .then((data) => {
         if (controller.signal.aborted || !Array.isArray(data.posts)) return;
-        setRelated(data.posts.filter((item: RelatedPost) => item.slug !== post.slug && item.category === post.category).slice(0, 3));
+        const others = (data.posts as RelatedPost[]).filter((item) => item.slug !== post.slug);
+        const sameCategory = others.filter((item) => item.category === post.category);
+        const differentCategory = others.filter((item) => item.category !== post.category);
+        setRelated([...sameCategory, ...differentCategory].slice(0, 3));
       })
       .catch(() => undefined);
     return () => controller.abort();
