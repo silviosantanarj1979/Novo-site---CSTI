@@ -4,6 +4,7 @@ export type BlogPost = {
   slug: string;
   excerpt: string;
   content: string;
+  content_blocks?: Array<{ _type?: string; style?: string; listItem?: string; level?: number; children?: Array<{ text?: string; marks?: string[] }> }>;
   cover_url: string | null;
   category: string;
   tags: string[];
