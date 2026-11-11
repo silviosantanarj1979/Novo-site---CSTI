@@ -1,0 +1,60 @@
+/* Blog CSTI Brasil – editorial isolado do restante do site */
+.csti-blog-page{background:#fff;color:#0b1720;overflow:hidden}
+.csti-blog-page .shell{width:min(calc(100% - 64px),1240px)}
+.csti-blog-page .csti-blog-kicker{display:block;color:#04b8de;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.csti-blog-page .dark-text{color:#087f9b}
+.csti-blog-banner{padding:178px 0 70px;background:linear-gradient(120deg,#061721 0%,#082e40 70%,#056b82 100%)}
+.csti-blog-banner-content h1{max-width:1060px;margin:22px 0 22px;font-size:clamp(40px,5.1vw,74px);font-weight:750;line-height:1.05;letter-spacing:-.045em}
+.csti-blog-banner-content h1 span{color:#12c1e5}
+.csti-blog-banner-content p{max-width:750px;color:#b9cbd1;font-size:clamp(16px,1.7vw,21px);line-height:1.65}
+.csti-blog-featured{padding:24px 0 65px;background:#071922}
+.csti-blog-featured-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.csti-blog-featured-image{display:block;aspect-ratio:16/9;overflow:hidden;border-radius:22px;background:#102c38}
+.csti-blog-featured-image>img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.csti-blog-featured-image:hover>img{transform:scale(1.03)}
+.csti-blog-featured-body h2{margin:15px 0 22px;font-size:clamp(29px,3vw,45px);font-weight:730;line-height:1.13;letter-spacing:-.04em}
+.csti-blog-featured-body h2 a:hover{color:#1dc7eb}
+.csti-blog-featured-body>p{max-width:580px;color:#a9bbc4;font-size:17px;line-height:1.7}
+.csti-blog-featured-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:28px;padding-top:18px;border-top:1px solid #ffffff29;color:#a1b4be;font-size:13px}
+.csti-blog-featured-bottom>a{color:#20c3e3;font-weight:750}
+.csti-blog-editorial{padding-top:80px;padding-bottom:95px}
+.csti-blog-topline{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:28px}
+.csti-blog-topline h2{margin:10px 0 0;font-size:clamp(35px,3.7vw,51px);line-height:1.08;letter-spacing:-.04em}
+.csti-blog-search{display:flex;align-items:center;gap:12px;width:min(100%,300px);min-height:50px;border:1px solid #d8e1e4;border-radius:12px;padding:0 16px;color:#637781;background:#fbfcfc}
+.csti-blog-search span{font-size:26px}
+.csti-blog-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font-size:14px;color:#0b1720}
+.csti-blog-search:focus-within{border-color:#08b8d4;box-shadow:0 0 0 3px #08b8d41a}
+.csti-blog-categories{display:flex;gap:9px;overflow-x:auto;padding:0 0 20px;margin-bottom:34px;border-bottom:1px solid #e0e7e8}
+.csti-blog-categories button{flex-shrink:0;padding:10px 17px;border:1px solid #e1e9eb;border-radius:50px;background:#fff;color:#53656f;font-size:13px;font-weight:680;cursor:pointer;transition:.2s}
+.csti-blog-categories button:hover{border-color:#0aa4c3;color:#006e88}
+.csti-blog-categories button.active{border-color:#081d29;background:#081d29;color:#fff}
+.csti-blog-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:58px 30px}
+.csti-blog-tile{min-width:0;background:#fff}
+.csti-blog-tile-image{display:block;aspect-ratio:1.52;overflow:hidden;border-radius:22px;background:#0a2734}
+.csti-blog-tile-image>img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.csti-blog-tile-image:hover>img{transform:scale(1.045)}
+.csti-blog-placeholder{display:grid;place-items:center;width:100%;height:100%;background:linear-gradient(130deg,#091923,#0a627b)}
+.csti-blog-placeholder img{width:22%;max-width:110px;filter:drop-shadow(0 0 18px #16cce86e)}
+.csti-blog-tile-copy{padding-top:17px}
+.csti-blog-tile-meta{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:12px;font-weight:700}
+.csti-blog-tile-meta span{color:#087d9a}
+.csti-blog-tile-meta time{color:#87949b;font-weight:500}
+.csti-blog-tile h3{margin:14px 0 11px;font-size:clamp(19px,1.6vw,24px);font-weight:740;line-height:1.28;letter-spacing:-.025em}
+.csti-blog-tile h3 a:hover{color:#058aa7}
+.csti-blog-tile-copy>p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;color:#677882;font-size:14px;line-height:1.65}
+.csti-blog-read{display:inline-flex;gap:9px;align-items:center;margin-top:4px;color:#087d98;font-size:13px;font-weight:730}
+.csti-blog-read:hover{text-decoration:underline}
+.csti-blog-feedback{padding:65px 35px;border:1px solid #e0eaeb;border-left:4px solid #08b8d4;border-radius:12px;background:#f7fafb;font-size:16px}
+.csti-blog-feedback strong{font-size:22px}
+.csti-blog-feedback p{margin:12px 0 0;color:#63747e}
+.csti-blog-more{display:flex;align-items:center;justify-content:center;gap:15px;min-width:250px;margin:60px auto 0;padding:17px 25px;border:1px solid #092331;border-radius:10px;background:#fff;color:#092331;font-weight:740;cursor:pointer}
+.csti-blog-more:hover{background:#092331;color:#fff}
+.csti-blog-cta{padding:70px 0;background:#071923}
+.csti-blog-cta .shell{display:flex;align-items:center;justify-content:space-between;gap:32px}
+.csti-blog-cta h2{max-width:700px;margin:16px 0;font-size:clamp(34px,3.3vw,50px);line-height:1.15}
+.csti-blog-cta p{max-width:630px;margin:0;color:#b6c3cb;line-height:1.6}
+.csti-blog-cta .button{white-space:nowrap;flex-shrink:0}
+@media(max-width:1024px){.csti-blog-featured-grid{gap:30px}.csti-blog-cards{gap:42px 22px}.csti-blog-tile-image{border-radius:17px}}
+@media(max-width:780px){.csti-blog-page .shell{width:calc(100% - 40px)}.csti-blog-banner{padding:155px 0 55px}.csti-blog-featured-grid{grid-template-columns:1fr}.csti-blog-featured{padding-bottom:46px}.csti-blog-editorial{padding-top:60px;padding-bottom:70px}.csti-blog-topline{align-items:flex-start;flex-direction:column}.csti-blog-search{width:100%}.csti-blog-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 18px}.csti-blog-cta .shell{align-items:flex-start;flex-direction:column}}
+@media(max-width:560px){.csti-blog-cards{grid-template-columns:1fr}.csti-blog-tile-image{border-radius:20px}.csti-blog-featured-body h2{font-size:30px}.csti-blog-banner-content h1{font-size:40px}.csti-blog-featured-bottom{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){.csti-blog-page *{transition:none!important;animation:none!important}}
