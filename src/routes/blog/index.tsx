@@ -60,7 +60,9 @@ function BlogPage() {
     const haystack = [post.title, post.excerpt, post.category, ...(post.tags || [])].join(" ").toLocaleLowerCase("pt-BR");
     return matchesCategory && haystack.includes(search.trim().toLocaleLowerCase("pt-BR"));
   }), [posts, search, category]);
-  const latest = filtered.slice(0, visibleCount);
+  const featuredVisible = Boolean(featured && !search && category === "Todas");
+  const displayPosts = featuredVisible ? filtered.filter((post) => post.slug !== featured?.slug) : filtered;
+  const latest = displayPosts.slice(0, visibleCount);
 
   return (
     <main id="inicio" className="csti-blog-page">
@@ -73,15 +75,15 @@ function BlogPage() {
         </div>
       </section>
 
-      {featured && !search && category === "Todas" && (
+      {featuredVisible && featured && (
         <section className="csti-blog-featured dark" aria-label="Artigo em destaque">
           <div className="shell csti-blog-featured-grid">
             <a className="csti-blog-featured-image" href={"/blog/" + featured.slug}><ArticleImage post={featured} priority /></a>
             <div className="csti-blog-featured-body">
-              <span className="csti-blog-kicker">EM DESTAQUE · {featured.category}{featured.sample_from_zip ? " · PRÉVIA" : ""}</span>
+              <span className="csti-blog-kicker">EM DESTAQUE · {featured.category}</span>
               <h2><a href={"/blog/" + featured.slug}>{featured.title}</a></h2>
               <p>{featured.excerpt}</p>
-              <div className="csti-blog-featured-bottom"><time>{dateLabel(featured.published_at)}</time><a href={"/blog/" + featured.slug}>Ler artigo <span aria-hidden="true">↗</span></a></div>
+              <div className="csti-blog-featured-bottom"><time>{dateLabel(featured.published_at)}{featured.reading_minutes ? " · " + featured.reading_minutes + " min de leitura" : ""}</time><a href={"/blog/" + featured.slug}>Ler artigo <span aria-hidden="true">↗</span></a></div>
             </div>
           </div>
         </section>
@@ -99,7 +101,6 @@ function BlogPage() {
             <input value={search} onChange={(event) => { setSearch(event.target.value); setVisibleCount(9); }} placeholder="Buscar no blog" type="search" />
           </label>
         </div>
-        {!loading && posts.some((post) => post.sample_from_zip) && <p className="csti-blog-zip-note">Inclui 7 prévias editoriais recuperadas do arquivo ZIP. Os textos integrais desses modelos ainda não foram fornecidos.</p>}
         <nav className="csti-blog-categories" aria-label="Categorias do blog">
           {categories.map((item) => (
             <button key={item} type="button" className={item === category ? "active" : ""} onClick={() => { setCategory(item); setVisibleCount(9); }} aria-pressed={item === category}>{item}</button>
@@ -116,7 +117,8 @@ function BlogPage() {
                 <article className="csti-blog-tile" key={post.id}>
                   <a className="csti-blog-tile-image" href={"/blog/" + post.slug} aria-label={"Ler " + post.title}><ArticleImage post={post} /></a>
                   <div className="csti-blog-tile-copy">
-                    <div className="csti-blog-tile-meta"><span>{post.category}{post.sample_from_zip ? " · Prévia" : ""}</span><time>{dateLabel(post.published_at)}</time></div>
+                    <div className="csti-blog-tile-meta"><span>{post.category}</span><time>{dateLabel(post.published_at)}</time></div>
+                    {post.reading_minutes ? <div className="csti-blog-read-time">{post.reading_minutes} min de leitura</div> : null}
                     <h3><a href={"/blog/" + post.slug}>{post.title}</a></h3>
                     <p>{post.excerpt}</p>
                     <a className="csti-blog-read" href={"/blog/" + post.slug}>Continuar lendo <span aria-hidden="true">↗</span></a>
@@ -124,7 +126,7 @@ function BlogPage() {
                 </article>
               ))}
             </div>
-            {filtered.length > visibleCount && <button className="csti-blog-more" type="button" onClick={() => setVisibleCount((value) => value + 9)}>Carregar mais artigos <span aria-hidden="true">↓</span></button>}
+            {displayPosts.length > visibleCount && <button className="csti-blog-more" type="button" onClick={() => setVisibleCount((value) => value + 9)}>Carregar mais artigos <span aria-hidden="true">↓</span></button>}
           </>
         }
       </section>
