@@ -32,14 +32,14 @@ As rotas existentes /api/blog e /api/blog/:slug passam a consultar os documentos
 2. Publique um artigo real no Sanity Studio.
 3. Abra https://cstibrasil.com.br/api/blog; deve aparecer source: sanity e o artigo criado.
 4. Abra https://cstibrasil.com.br/blog/SEU-SLUG e confira capa, data, textos, links e celular.
-5. As sete prévias do ZIP aparecem na listagem e abrem páginas de prévia, sem inventar o texto completo ausente do arquivo.
+5. Os sete assuntos do ZIP foram transformados em artigos editoriais originais e completos. Abra cada um e verifique textos, sumário, referências e tempo de leitura.
 
 ## Cuidados
 
 - O site mantém o Supabase como opção anterior até que SANITY_PROJECT_ID seja configurado.
 - Artigos do Supabase não são migrados automaticamente. O painel antigo em /admin não grava no Sanity.
-- Os sete registros do ZIP são lidos de src/lib/blog-zip-seed.ts. Eles aparecem mesmo sem CMS e continuam visíveis ao lado de artigos reais, a menos que um artigo real use o mesmo slug.
-- Essas sete prévias NÃO estão cadastradas no Sanity: para torná-las editáveis no Studio, ainda será preciso criar/importar documentos no projeto Sanity após sua configuração.
+- Os sete registros originados do ZIP são lidos de src/lib/blog-zip-seed.ts e dos textos originais em src/lib/blog-editorial-{a,b,c}.ts. Eles aparecem mesmo sem CMS e continuam visíveis ao lado de artigos reais, a menos que um artigo real use o mesmo slug.
+- Esses sete artigos completos estão no código do site, mas NÃO estão cadastrados no Sanity: para editá-los pelo Studio, será preciso criar/importar documentos no projeto Sanity após sua configuração.
 - O dataset configurado para leitura pública precisa ser público; datasets privados exigem backend com autenticação no servidor.
 - Não coloque tokens, senhas e chaves privadas no repositório.
 - O frontend faz as consultas ao Sanity pelo servidor (evitando necessidades de CORS no navegador para essa leitura).
@@ -84,3 +84,12 @@ O painel permite cadastrar título, endereço, categoria, resumo, imagem, conte�
 - A sessão administrativa é mantida em cookie `HttpOnly`, `Secure` e `SameSite=Lax`.
 - O navegador não recebe a senha nem a chave do banco.
 - As regras RLS do Supabase permitem escrita somente para usuários autenticados.
+
+## Revisão editorial de 11/11/2026
+
+- Textos completos e originais gerados para sete temas do arquivo ZIP, com cerca de 700 a 940 palavras cada.
+- Layout revisado: fontes menores, resumos, sumário navegável, listas formatadas, referências oficiais e artigos relacionados.
+- Data editorial atualizada para novembro de 2026. As datas dos cards do ZIP foram substituídas para evitar atribuir textos recém-redigidos a 2025.
+- API /api/blog retorna metadados leves para melhorar o carregamento; /api/blog/:slug retorna o conteúdo integral.
+- As políticas e os preços da Meta mudam: os textos evitam valores fixos e indicam referências oficiais para consulta vigente.
+- A hospedagem precisa compilar e publicar o commit atualizado. Valide navegação e links na URL oficial após o deploy.
