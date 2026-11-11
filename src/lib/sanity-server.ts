@@ -5,7 +5,7 @@
  */
 import type { BlogPost } from "./blog-server";
 
-type Block = { _type?: string; style?: string; children?: Array<{ text?: string }> };
+type Block = { _type?: string; style?: string; listItem?: string; level?: number; children?: Array<{ text?: string; marks?: string[] }> };
 type Doc = {
   _id: string; _createdAt: string; _updatedAt: string;
   title?: string; slug?: string; excerpt?: string; coverUrl?: string | null;
@@ -55,6 +55,7 @@ function toPost(doc: Doc): BlogPost {
     published_at: doc.publishedAt || doc._createdAt,
     status: "published",
     content: toPlainText(doc.body),
+    content_blocks: Array.isArray(doc.body) ? doc.body : undefined,
     seo_title: doc.seoTitle || null,
     seo_description: doc.seoDescription || null,
     created_at: doc._createdAt,
