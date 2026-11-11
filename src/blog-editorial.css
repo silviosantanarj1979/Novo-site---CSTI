@@ -61,3 +61,97 @@
 
 /* Indicadores honestos para prévias editoriais recuperadas do blog.zip */
 .csti-blog-zip-note{margin:0 0 22px;padding:15px 18px;border-left:3px solid #0dbcd9;border-radius:6px;background:#f2f9fa;color:#42545d;font-size:13px;line-height:1.55}
+
+
+/* ===== Editorial refinado: hierarquia moderada e leitura confortavel ===== */
+.csti-blog-page,.csti-article-page{font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,Arial,sans-serif}
+.csti-blog-page .csti-blog-banner{padding:146px 0 50px}
+.csti-blog-page .csti-blog-banner-content h1{max-width:850px;margin:16px 0;font-size:clamp(33px,3.4vw,48px);font-weight:750;letter-spacing:-.035em;line-height:1.12}
+.csti-blog-page .csti-blog-banner-content p{max-width:660px;font-size:16px;line-height:1.65}
+.csti-blog-page .csti-blog-kicker{font-size:10px;letter-spacing:.13em}
+.csti-blog-page .csti-blog-featured{padding:8px 0 46px}
+.csti-blog-page .csti-blog-featured-grid{grid-template-columns:1.05fr .95fr;gap:42px}
+.csti-blog-page .csti-blog-featured-image{aspect-ratio:16/10;border-radius:16px}
+.csti-blog-page .csti-blog-featured-body h2{margin:13px 0 13px;max-width:550px;font-size:clamp(23px,2.2vw,32px);line-height:1.25;letter-spacing:-.025em}
+.csti-blog-page .csti-blog-featured-body>p{font-size:14px;line-height:1.75}
+.csti-blog-page .csti-blog-featured-bottom{margin-top:18px;padding-top:15px;font-size:12px}
+.csti-blog-page .csti-blog-editorial{padding-top:64px;padding-bottom:82px}
+.csti-blog-page .csti-blog-topline{margin-bottom:23px}
+.csti-blog-page .csti-blog-topline h2{font-size:clamp(27px,2.4vw,34px);line-height:1.18}
+.csti-blog-page .csti-blog-categories{margin-bottom:30px;padding-bottom:18px}
+.csti-blog-page .csti-blog-categories button{font-size:12px;padding:9px 14px}
+.csti-blog-page .csti-blog-cards{gap:41px 27px}
+.csti-blog-page .csti-blog-tile-image{border-radius:15px;aspect-ratio:1.62}
+.csti-blog-page .csti-blog-tile-copy{padding-top:15px}
+.csti-blog-page .csti-blog-tile-meta{font-size:11px;gap:6px;line-height:1.4}
+.csti-blog-page .csti-blog-tile h3{margin:11px 0 9px;font-size:clamp(17px,1.25vw,19px);font-weight:720;line-height:1.4;letter-spacing:-.015em}
+.csti-blog-page .csti-blog-tile-copy>p{font-size:13px;line-height:1.7;margin-bottom:12px}
+.csti-blog-page .csti-blog-read{font-size:12px}
+.csti-blog-page .csti-blog-cta{padding:55px 0}
+.csti-blog-page .csti-blog-cta h2{font-size:clamp(27px,2.35vw,34px)}
+.csti-blog-page .csti-blog-cta p{font-size:14px}
+
+/* ===== Pagina do artigo: leitura e hierarquia editorial ===== */
+.csti-article-page{background:#fff;color:#172b35}
+.csti-article-page .shell{width:min(calc(100% - 64px),1130px)}
+.csti-article-page .csti-article-hero{padding:148px 0 72px;background:linear-gradient(120deg,#061721 0%,#0a2633 75%,#0b3b4d 100%)}
+.csti-article-page .article-title{max-width:1040px}
+.csti-article-page .csti-article-breadcrumbs{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:35px;color:#afc3ca;font-size:12px}
+.csti-article-page .csti-article-breadcrumbs a:hover{color:#43d0ed}
+.csti-article-page .csti-article-category{margin:0 0 14px;color:#36cbea;font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+.csti-article-page .article-title h1{max-width:900px;margin:0 0 20px;font-size:clamp(31px,3.5vw,49px);font-weight:760;letter-spacing:-.035em;line-height:1.17}
+.csti-article-page .article-title .csti-article-deck{max-width:800px;margin-bottom:25px;color:#c2d0d6;font-size:clamp(15px,1.45vw,18px);line-height:1.7}
+.csti-article-page .csti-article-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;color:#9cb5c0;font-size:12px;line-height:1.5}
+.csti-article-page .csti-meta-dot{color:#44d0eb}
+.csti-article-page .csti-article-cover-area{margin-top:-32px;position:relative;z-index:1}
+.csti-article-page .csti-article-cover-image{display:block;width:100%;height:clamp(230px,34vw,410px);object-fit:cover;border-radius:16px;background:#092531}
+.csti-article-page .csti-article-cover-fallback{height:clamp(210px,30vw,380px);display:grid;place-items:center;border-radius:16px;background:linear-gradient(130deg,#092131,#0b5a6e)}
+.csti-article-page .csti-article-cover-fallback img{width:120px;max-width:25%;filter:drop-shadow(0 0 16px #14b4d44d)}
+.csti-article-page .csti-article-layout{display:grid;grid-template-columns:220px minmax(0,1fr);column-gap:66px;padding-top:62px;padding-bottom:95px;align-items:start}
+.csti-article-page .csti-article-main{min-width:0;max-width:750px}
+.csti-article-page .csti-article-sidebar-inner{position:sticky;top:108px}
+.csti-article-page .csti-article-aside-label{margin:0 0 15px;color:#087c97;font-size:10px;font-weight:800;letter-spacing:.12em}
+.csti-article-page .csti-article-sidebar nav{display:flex;flex-direction:column;gap:1px;border-left:1px solid #d7e4e8;padding-left:14px}
+.csti-article-page .csti-article-sidebar nav a{display:block;padding:9px 4px;color:#667780;font-size:12px;line-height:1.5;transition:color .15s}
+.csti-article-page .csti-article-sidebar nav a:hover{color:#057fa0}
+.csti-article-page .csti-article-back{display:inline-block;margin-top:22px;color:#0a829e;font-size:12px;font-weight:700}
+.csti-article-page .csti-article-summary{margin:0 0 40px;padding:28px 32px;border:1px solid #d9e7ea;border-radius:13px;background:#f8fbfc}
+.csti-article-page .csti-article-overline{margin:0 0 9px;font-size:10px;color:#0785a0;font-weight:800;letter-spacing:.13em}
+.csti-article-page .csti-article-summary h2{margin:0 0 15px;font-size:20px;font-weight:730;line-height:1.3;letter-spacing:-.015em}
+.csti-article-page .csti-article-summary ul{margin:0;padding-left:21px;color:#4c616a;font-size:14px;line-height:1.8}
+.csti-article-page .csti-article-summary li{padding:3px 0}
+.csti-article-page .article-body.csti-article-prose{max-width:none;margin:0;padding:0;color:#33444b}
+.csti-article-page .csti-article-prose p{margin:0 0 21px;color:#314650;font-size:16px;font-weight:400;line-height:1.86;letter-spacing:0}
+.csti-article-page .csti-article-prose>p:first-child{font-size:17px;color:#1c343e;line-height:1.85}
+.csti-article-page .csti-article-prose h2{scroll-margin-top:125px;margin:42px 0 18px;color:#152b35;font-size:clamp(23px,2.3vw,27px);line-height:1.33;letter-spacing:-.025em;font-weight:750}
+.csti-article-page .csti-article-prose h3{margin:28px 0 13px;color:#193642;font-size:19px;line-height:1.4;letter-spacing:-.01em;font-weight:720}
+.csti-article-page .csti-article-prose strong{color:#132e39;font-weight:730}
+.csti-article-page .csti-article-prose blockquote{margin:28px 0;padding:20px 25px;border-left:3px solid #08a6c9;background:#f8fbfc;font-size:16px;line-height:1.75;color:#38525c}
+.csti-article-page .csti-article-prose .csti-article-list{margin:0 0 23px;padding-left:27px;color:#314650;font-size:16px;line-height:1.85}
+.csti-article-page .csti-article-prose .csti-article-list li{padding-left:4px;margin:0 0 10px}
+.csti-article-page .csti-article-prose ul.csti-article-list{list-style:disc}
+.csti-article-page .csti-article-prose ol.csti-article-list{list-style:decimal}
+.csti-article-page .csti-article-sources{margin-top:48px;padding-top:28px;border-top:1px solid #e3eaeb}
+.csti-article-page .csti-article-sources h2{margin:0 0 12px;font-size:21px;line-height:1.35}
+.csti-article-page .csti-article-sources p{margin:0 0 12px;color:#697b83;font-size:13px;line-height:1.7}
+.csti-article-page .csti-article-sources ul{margin:0;padding-left:20px}
+.csti-article-page .csti-article-sources li{margin:0 0 9px;font-size:13px;line-height:1.5}
+.csti-article-page .csti-article-sources a{color:#057c9b;text-decoration:underline;text-underline-offset:3px}
+.csti-article-page .csti-article-end{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-top:40px;padding:25px 0;border-top:1px solid #e2e9ea;border-bottom:1px solid #e2e9ea}
+.csti-article-page .csti-article-end span{color:#0c829d;font-size:10px;font-weight:790;letter-spacing:.1em}
+.csti-article-page .csti-article-end p{margin:8px 0 0;color:#627580;font-size:13px;line-height:1.5}
+.csti-article-page .csti-article-end button{flex-shrink:0;padding:12px 18px;border:1px solid #a5c7cf;border-radius:9px;background:#fff;color:#087995;font-size:12px;font-weight:700;cursor:pointer}
+.csti-article-page .csti-article-end button:hover{background:#f1fafb}
+.csti-article-page .csti-article-related{margin-top:45px}
+.csti-article-page .csti-article-related h2{margin:0 0 20px;font-size:23px}
+.csti-article-page .csti-article-related>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.csti-article-page .csti-article-related a{display:flex;flex-direction:column;gap:13px;padding:20px;border:1px solid #e0e9eb;border-radius:12px;transition:border-color .2s}
+.csti-article-page .csti-article-related a:hover{border-color:#06a6c6}
+.csti-article-page .csti-article-related a span{font-size:10px;color:#0787a1;font-weight:760}
+.csti-article-page .csti-article-related a strong{font-size:15px;line-height:1.5;color:#1b333d}
+.csti-article-page .csti-article-related a small{margin-top:auto;color:#0b88a3;font-size:11px}
+.csti-article-page .csti-article-cta{padding:60px 0}
+.csti-article-page .csti-article-cta h2{font-size:clamp(26px,2.65vw,36px);line-height:1.25}
+@media(max-width:940px){.csti-article-page .csti-article-layout{grid-template-columns:180px minmax(0,1fr);column-gap:36px}.csti-blog-page .csti-blog-featured-grid{gap:27px}}
+@media(max-width:780px){.csti-blog-page .csti-blog-banner{padding:134px 0 42px}.csti-blog-page .csti-blog-banner-content h1{font-size:35px}.csti-blog-page .csti-blog-featured-grid{grid-template-columns:1fr}.csti-blog-page .csti-blog-featured{padding:10px 0 38px}.csti-blog-page .csti-blog-editorial{padding:46px 0 65px}.csti-blog-page .csti-blog-cards{gap:34px 18px}.csti-article-page .shell{width:calc(100% - 40px)}.csti-article-page .csti-article-hero{padding:132px 0 60px}.csti-article-page .article-title h1{font-size:clamp(28px,6.1vw,39px)}.csti-article-page .csti-article-cover-area{margin-top:-20px}.csti-article-page .csti-article-layout{display:flex;flex-direction:column;gap:22px;padding-top:38px;padding-bottom:65px}.csti-article-page .csti-article-sidebar{width:100%}.csti-article-page .csti-article-sidebar-inner{position:static}.csti-article-page .csti-article-sidebar nav{flex-direction:row;gap:9px;padding:0 0 10px;overflow-x:auto;border-left:0;border-bottom:1px solid #dce8ec}.csti-article-page .csti-article-sidebar nav a{flex:0 0 auto;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:8px 12px;border:1px solid #e1eaec;border-radius:20px;font-size:11px}.csti-article-page .csti-article-sidebar .csti-article-aside-label{display:none}.csti-article-page .csti-article-back{margin-top:9px}.csti-article-page .csti-article-main{max-width:none}}
+@media(max-width:560px){.csti-blog-page .csti-blog-banner-content h1{font-size:32px}.csti-blog-page .csti-blog-topline h2{font-size:28px}.csti-blog-page .csti-blog-cards{grid-template-columns:1fr}.csti-blog-page .csti-blog-tile h3{font-size:18px}.csti-blog-page .csti-blog-featured-body h2{font-size:25px}.csti-article-page .article-title h1{font-size:31px}.csti-article-page .csti-article-breadcrumbs{margin-bottom:23px}.csti-article-page .csti-article-meta{gap:7px}.csti-article-page .csti-article-summary{padding:21px}.csti-article-page .csti-article-prose p,.csti-article-page .csti-article-prose .csti-article-list{font-size:15.5px;line-height:1.82}.csti-article-page .csti-article-prose h2{font-size:23px}.csti-article-page .csti-article-end{flex-direction:column;align-items:flex-start}.csti-article-page .csti-article-related>div{grid-template-columns:1fr}}
